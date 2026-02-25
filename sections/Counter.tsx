@@ -2,8 +2,8 @@ import React from 'react'
 
 const stats = [
   { label: 'Leaders Trained', value: '15k+', color: 'text-blue-600', bg: 'bg-blue-50' },
-  { label: 'Success Rate', value: '98%', color: 'text-green-600', bg: 'bg-green-50' },
-  { label: 'Global Partners', value: '500+', color: 'text-purple-600', bg: 'bg-purple-50' },
+  { label: 'Success Rate', value: '98%', color: 'text-blue-600', bg: 'bg-green-50' },
+  { label: 'Global Partners', value: '500+', color: 'text-blue-600', bg: 'bg-purple-50' },
 ]
 
 const Counter = () => {

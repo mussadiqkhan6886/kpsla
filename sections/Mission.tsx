@@ -3,26 +3,23 @@ import React from 'react'
 
 const Mission = () => {
   return (
-    <section className="py-24 bg-white overflow-hidden">
+    <section className="py-24 overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="flex flex-col lg:flex-row items-stretch gap-16">
           
-          {/* Image Side - Fixed Aspect Ratio Container */}
           <div className="relative w-full lg:w-5/12 min-h-[400px] lg:min-h-[500px]">
             <div className="absolute inset-0 z-10 rounded-3xl border-[12px] border-slate-100/50" />
             <Image 
               src="/hero.jpg" 
               alt="Our Mission in Education" 
               fill 
-              className="object-cover rounded-2xl shadow-2xl"
+              className="object-cover rounded-[22px]"
             />
-            {/* Subtle floating badge */}
             <div className="absolute -bottom-6 -right-6 z-20 bg-blue-600 p-8 rounded-2xl hidden md:block">
               <p className="text-white font-bold text-3xl italic">"Impact through <br/> Knowledge"</p>
             </div>
           </div>
 
-          {/* Text Side */}
           <div className="w-full lg:w-7/12 flex flex-col justify-center">
             <h2 className="text-blue-600 font-bold uppercase tracking-widest text-sm mb-4">
               Our Mission
@@ -46,7 +43,6 @@ const Mission = () => {
               </p>
             </div>
 
-            {/* Achievement Mini-Stats */}
             <div className="grid grid-cols-2 gap-8 mt-10 border-t pt-10">
               <div>
                 <span className="block text-3xl font-bold text-slate-900">95%</span>

@@ -4,12 +4,9 @@ import React from 'react'
 const Hero = () => {
   return (
     <section className="relative min-h-[90vh] lg:h-screen flex items-center pt-10 overflow-hidden bg-slate-50">
-      {/* Decorative Background Blur */}
-      <div className="absolute top-0 right-0 -z-10 h-[500px] w-[500px] rounded-full bg-blue-100/50 blur-3xl" />
-      
+    
       <div className="container mx-auto px-6 flex flex-col lg:flex-row items-center gap-12">
         
-        {/* Left Content */}
         <section className="w-full lg:w-1/2 flex flex-col space-y-6 text-center lg:text-left">
           <span className="inline-block w-fit mx-auto lg:mx-0 px-4 py-1.5 rounded-full bg-blue-100 text-blue-700 text-sm font-bold tracking-wide uppercase">
             Empowering Future Leaders
