@@ -1,0 +1,139 @@
+import React from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
+import { LuCalendar, LuMapPin, LuArrowRight, LuCirclePlay } from 'react-icons/lu'
+
+// --- Mock Data ---
+const upcomingEvents = [
+  {
+    id: 1,
+    title: "Global Leadership Summit 2026",
+    date: "MAR 15",
+    time: "10:00 AM",
+    location: "New York / Virtual",
+    desc: "A three-day intensive summit featuring world-class speakers on the future of AI-driven leadership.",
+    image: "/hero.jpg"
+  },
+  {
+    id: 2,
+    title: "Executive Women in Tech Workshop",
+    date: "APR 02",
+    time: "02:00 PM",
+    location: "London Hub",
+    desc: "Networking and strategy session focused on breaking glass ceilings in the tech sector.",
+    image: "/hero.jpg"
+  }
+];
+
+const pastEvents = [
+  { id: 3, title: "Leadership Retreat 2025", date: "Dec 2025", image: "/hero.jpg" },
+  { id: 4, title: "Innovation Forum", date: "Oct 2025", image: "/hero.jpg" },
+  { id: 5, title: "Youth Lead Workshop", date: "Aug 2025", image: "/hero.jpg" },
+];
+
+const EventsPage = () => {
+  return (
+    <main className="pt-20 bg-white">
+      {/* 1. Header */}
+      <section className="bg-slate-900 py-24 text-white">
+        <div className="container mx-auto px-6 text-center">
+          <h1 className="text-4xl md:text-6xl font-black mb-6 tracking-tight">
+            Events & <span className="text-blue-500">Experiences</span>
+          </h1>
+          <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+            From global summits to intimate workshops, join us in person or 
+            virtually to sharpen your leadership edge.
+          </p>
+        </div>
+      </section>
+
+      {/* 2. UPCOMING EVENTS */}
+      <section className="py-24">
+        <div className="container mx-auto px-6">
+          <div className="flex items-center gap-4 mb-12">
+            <div className="h-px flex-1 bg-slate-100"></div>
+            <h2 className="text-2xl font-bold text-slate-900 uppercase tracking-widest">Upcoming Events</h2>
+            <div className="h-px flex-1 bg-slate-100"></div>
+          </div>
+
+          <div className="grid grid-cols-1 gap-12">
+            {upcomingEvents.map((event) => (
+              <div key={event.id} className="group flex flex-col lg:flex-row bg-slate-50 rounded-[2.5rem] overflow-hidden hover:shadow-2xl transition-all duration-500 border border-slate-100">
+                <div className="relative lg:w-2/5 h-72 lg:h-auto overflow-hidden">
+                  <Image src={event.image} alt={event.title} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <div className="absolute top-6 left-6 bg-white rounded-2xl p-4 shadow-xl text-center min-w-[80px]">
+                    <span className="block text-2xl font-black text-blue-600 leading-none">{event.date.split(' ')[1]}</span>
+                    <span className="block text-xs font-bold uppercase text-slate-500 mt-1">{event.date.split(' ')[0]}</span>
+                  </div>
+                </div>
+                <div className="lg:w-3/5 p-8 lg:p-16 flex flex-col justify-center">
+                  <div className="flex flex-wrap gap-4 mb-6 text-sm font-bold text-blue-600 uppercase tracking-widest">
+                    <span className="flex items-center gap-2"><LuCalendar /> {event.time}</span>
+                    <span className="flex items-center gap-2"><LuMapPin /> {event.location}</span>
+                  </div>
+                  <h3 className="text-3xl font-black text-slate-900 mb-6">{event.title}</h3>
+                  <p className="text-slate-600 text-lg mb-8 leading-relaxed">{event.desc}</p>
+                  <div className="flex flex-wrap gap-4">
+                    <button className="px-8 py-4 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition-all flex items-center gap-2">
+                      Secure My Spot <LuArrowRight />
+                    </button>
+                    <button className="px-8 py-4 border border-slate-200 text-slate-700 font-bold rounded-xl hover:bg-white transition-all">
+                      View Itinerary
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 3. PAST EVENTS ARCHIVE */}
+      <section className="py-24 bg-slate-50">
+        <div className="container mx-auto px-6">
+          <div className="mb-16">
+            <h2 className="text-3xl font-black text-slate-900">Past Highlights</h2>
+            <p className="text-slate-500 mt-2">Missed an event? Catch up on the key takeaways and recordings.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {pastEvents.map((event) => (
+              <div key={event.id} className="bg-white rounded-3xl overflow-hidden shadow-sm group cursor-pointer border border-slate-100">
+                <div className="relative h-64">
+                  <Image src={event.image} alt={event.title} fill className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
+                  <div className="absolute inset-0 bg-slate-900/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                    <LuCirclePlay className="text-white text-6xl" />
+                  </div>
+                </div>
+                <div className="p-6">
+                  <span className="text-blue-600 font-bold text-xs uppercase tracking-widest">{event.date}</span>
+                  <h4 className="text-xl font-bold text-slate-900 mt-2">{event.title}</h4>
+                  <Link href="#" className="inline-block mt-4 text-slate-500 font-bold text-sm hover:text-blue-600 transition-colors underline underline-offset-4">
+                    View Recap
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4. NEWSLETTER CTA */}
+      <section className="py-24">
+        <div className="container mx-auto px-6">
+          <div className="bg-blue-600 rounded-[3rem] p-12 text-center text-white relative overflow-hidden">
+             <div className="absolute top-0 left-0 w-64 h-64 bg-white/10 blur-[100px] -ml-32 -mt-32" />
+             <h2 className="text-3xl md:text-4xl font-black mb-6 relative z-10">Never miss a leadership moment.</h2>
+             <p className="text-blue-100 mb-8 relative z-10">Subscribe to get early-bird access to all our 2026 summits.</p>
+             <div className="max-w-md mx-auto flex gap-4 relative z-10">
+                <input type="email" placeholder="Your email" className="flex-1 px-6 py-4 rounded-xl text-slate-900 focus:outline-none" />
+                <button className="bg-slate-900 px-8 py-4 rounded-xl font-bold hover:bg-slate-800 transition-all">Join</button>
+             </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  )
+}
+
+export default EventsPage
