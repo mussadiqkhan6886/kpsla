@@ -1,3 +1,5 @@
+import Footer from "@/components/UserComp/Footer";
+import Header from "@/components/UserComp/Header";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -11,6 +13,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    <>
+    <Header />
     {children}
+    <Footer />
+    </>
   );
 }
