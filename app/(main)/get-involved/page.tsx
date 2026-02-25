@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import { LuUsers, LuHandshake, LuGraduationCap, LuHeart, LuSend, LuDownload, LuCheck } from 'react-icons/lu'
+import Link from 'next/link'
 
 const GetInvolvedPage = () => {
   const [activeTab, setActiveTab] = useState('student');
@@ -71,16 +72,9 @@ const GetInvolvedPage = () => {
               </div>
               <form className="bg-slate-50 p-8 md:p-10 rounded-[2.5rem] border border-slate-100 space-y-4">
                 <h3 className="text-xl font-bold mb-6">Register for Membership</h3>
-                <input type="text" placeholder="Full Name" className="w-full px-6 py-4 rounded-xl border border-slate-200 outline-none focus:border-blue-600" />
-                <input type="email" placeholder="University Email" className="w-full px-6 py-4 rounded-xl border border-slate-200 outline-none focus:border-blue-600" />
-                <select className="w-full px-6 py-4 rounded-xl border border-slate-200 bg-white outline-none focus:border-blue-600">
-                  <option>Select Level of Study</option>
-                  <option>Undergraduate</option>
-                  <option>Postgraduate</option>
-                </select>
-                <button className="w-full py-4 bg-blue-600 text-white font-black rounded-xl hover:bg-blue-700 transition-all shadow-xl shadow-blue-100">
+                <Link href={"/registration"} className="w-full py-4 bg-blue-600 text-white font-black rounded-xl hover:bg-blue-700 transition-all shadow-xl shadow-blue-100">
                   Become a Member
-                </button>
+                </Link>
               </form>
             </div>
           )}

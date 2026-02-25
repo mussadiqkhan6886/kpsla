@@ -118,20 +118,6 @@ const EventsPage = () => {
         </div>
       </section>
 
-      {/* 4. NEWSLETTER CTA */}
-      <section className="py-24">
-        <div className="container mx-auto px-6">
-          <div className="bg-blue-600 rounded-[3rem] p-12 text-center text-white relative overflow-hidden">
-             <div className="absolute top-0 left-0 w-64 h-64 bg-white/10 blur-[100px] -ml-32 -mt-32" />
-             <h2 className="text-3xl md:text-4xl font-black mb-6 relative z-10">Never miss a leadership moment.</h2>
-             <p className="text-blue-100 mb-8 relative z-10">Subscribe to get early-bird access to all our 2026 summits.</p>
-             <div className="max-w-md mx-auto flex gap-4 relative z-10">
-                <input type="email" placeholder="Your email" className="flex-1 px-6 py-4 rounded-xl text-slate-900 focus:outline-none" />
-                <button className="bg-slate-900 px-8 py-4 rounded-xl font-bold hover:bg-slate-800 transition-all">Join</button>
-             </div>
-          </div>
-        </div>
-      </section>
     </main>
   )
 }

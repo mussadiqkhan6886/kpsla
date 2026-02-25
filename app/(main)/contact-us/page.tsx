@@ -127,17 +127,47 @@ const ContactPage = () => {
 
       <FAQ />
 
-      {/* 3. Map Section (Placeholder) */}
-      <section className="h-[450px] w-full bg-slate-100 relative grayscale hover:grayscale-0 transition-all duration-700">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center">
-            <LuMapPin className="text-blue-600 mx-auto mb-4" size={48} />
-            <p className="font-bold text-slate-900">Interactive Map Integration Here</p>
-            <p className="text-slate-500 text-sm italic">Google Maps or Mapbox API</p>
-          </div>
+      {/* 3. Map Section - Live Google Maps Embed for Mardan */}
+<section className="h-[500px] w-full relative group">
+  {/* Overlay for a premium look before interaction */}
+  <div className="absolute inset-0 bg-slate-900/10 pointer-events-none group-hover:bg-transparent transition-all duration-700 z-10" />
+  
+  <iframe
+    title="EduPath Mardan Office"
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d105655.94639943566!2d71.95679545468725!3d34.1982054625298!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dec005a306488d%3A0x6e2697a21696b054!2sMardan%2C%20Khyber%20Pakhtunkhwa%2C%20Pakistan!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s"
+    width="100%"
+    height="100%"
+    style={{ border: 0 }}
+    allowFullScreen={true}
+    loading="lazy"
+    referrerPolicy="no-referrer-when-downgrade"
+    className="lg:grayscale lg:hover:grayscale-0 transition-all duration-1000"
+  ></iframe>
+
+  {/* Floating Location Card */}
+  <div className="absolute bottom-10 left-10 z-20 hidden md:block">
+    <div className="bg-white p-6 rounded-[2rem] shadow-2xl border border-slate-100 max-w-xs animate-in fade-in slide-in-from-left-4">
+      <div className="flex items-center gap-3 mb-3">
+        <div className="p-2 bg-blue-600 rounded-lg text-white">
+          <LuMapPin size={20} />
         </div>
-        {/* You can replace this div with a real <iframe> or Google Maps component */}
-      </section>
+        <h4 className="font-black text-slate-900 uppercase text-xs tracking-widest">Headquarters</h4>
+      </div>
+      <p className="text-slate-600 text-sm font-medium leading-relaxed">
+        Main Mardan City, <br />
+        Khyber Pakhtunkhwa, <br />
+        Pakistan.
+      </p>
+      <a 
+        href="https://maps.google.com" 
+        target="_blank" 
+        className="mt-4 inline-block text-blue-600 text-xs font-bold uppercase tracking-wider hover:text-blue-800"
+      >
+        Get Directions →
+      </a>
+    </div>
+  </div>
+</section>
     </main>
   )
 }
