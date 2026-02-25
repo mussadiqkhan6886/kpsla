@@ -214,8 +214,8 @@ const AboutUs = () => {
       <Power />
       <section className="py-20 text-center">
         <h2 className="text-2xl font-bold text-slate-900 mb-6">Ready to start your journey?</h2>
-        <button className="bg-blue-600 text-white px-10 py-4 rounded-2xl font-black hover:scale-105 transition-all shadow-xl shadow-blue-200">
-          Schedule a Consultation
+        <button className="bg-blue-600 text-white  rounded-2xl font-black hover:scale-105 transition-all shadow-xl shadow-blue-200">
+          <Link className='inline-block px-10 py-4' href={"/contact-us"}>Schedule a Consultation</Link>
         </button>
       </section>
     </main>
