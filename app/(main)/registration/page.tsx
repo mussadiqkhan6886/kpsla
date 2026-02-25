@@ -1,6 +1,10 @@
 "use client"
 import React, { useState } from 'react'
-import { LuUser, LuBookOpen, LuMapPin, LuUpload, LuCheck, LuChevronRight, LuChevronLeft } from 'react-icons/lu'
+import { LuUser, LuBookOpen, LuMapPin, LuUpload, LuCheck, LuChevronRight, LuChevronLeft, LuShieldCheck } from 'react-icons/lu'
+
+const KPK_DISTRICTS = [
+  "Abbottabad", "Bannu", "Battagram", "Buner", "Charsadda", "Dera Ismail Khan", "Hangu", "Haripur", "Karak", "Kohat", "Kohistan", "Lakki Marwat", "Lower Dir", "Malakand", "Mansehra", "Mardan", "Nowshera", "Peshawar", "Shangla", "Swabi", "Swat", "Tank", "Torghar", "Upper Dir"
+];
 
 const StudentRegistration = () => {
   const [step, setStep] = useState(1);
@@ -15,155 +19,228 @@ const StudentRegistration = () => {
           
           {/* Progress Bar */}
           <div className="mb-12">
-            <div className="flex justify-between mb-4">
-              {['Personal info', 'Education', 'Program Choice', 'Documents'].map((label, i) => (
-                <div key={i} className={`text-xs font-bold uppercase tracking-widest ${step >= i + 1 ? 'text-blue-600' : 'text-slate-400'}`}>
+            <div className="flex justify-between mb-4 px-2">
+              {['Identity', 'Location', 'Academic', 'Commitment'].map((label, i) => (
+                <div key={i} className={`text-[10px] md:text-xs font-black uppercase tracking-[0.2em] ${step >= i + 1 ? 'text-blue-600' : 'text-slate-400'}`}>
                   {label}
                 </div>
               ))}
             </div>
-            <div className="h-2 w-full bg-slate-200 rounded-full overflow-hidden">
-              <div 
-                className="h-full bg-blue-600 transition-all duration-500" 
-                style={{ width: `${(step / 4) * 100}%` }}
-              />
+            <div className="h-1.5 w-full bg-slate-200 rounded-full overflow-hidden">
+              <div className="h-full bg-blue-600 transition-all duration-500" style={{ width: `${(step / 4) * 100}%` }} />
             </div>
           </div>
 
-          <form className="bg-white rounded-[2.5rem] shadow-xl shadow-slate-200/60 p-8 md:p-12 border border-slate-100">
+          <form className="bg-white rounded-[2.5rem] shadow-2xl shadow-slate-200/50 p-8 md:p-14 border border-slate-100">
             
-            {/* STEP 1: PERSONAL DETAILS */}
+            {/* STEP 1: PERSONAL & IDENTITY */}
             {step === 1 && (
               <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4">
-                <div className="flex items-center gap-4 text-slate-900 mb-8">
-                  <div className="p-3 bg-blue-50 text-blue-600 rounded-xl"><LuUser size={24} /></div>
-                  <h2 className="text-2xl font-black">Personal Details</h2>
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="p-3 bg-blue-50 text-blue-600 rounded-2xl"><LuUser size={24} /></div>
+                  <h2 className="text-2xl font-black text-slate-900">Personal Identity</h2>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label className="text-sm font-bold text-slate-700">First Name *</label>
-                    <input type="text" required className="w-full px-5 py-4 rounded-xl border border-slate-200 focus:border-blue-600 outline-none transition-all" placeholder="John" />
+                    <label className="text-sm font-bold text-slate-700">Full Name *</label>
+                    <input type="text" required className="input-style" placeholder="Your Name" />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm font-bold text-slate-700">Last Name *</label>
-                    <input type="text" required className="w-full px-5 py-4 rounded-xl border border-slate-200 focus:border-blue-600 outline-none transition-all" placeholder="Doe" />
+                    <label className="text-sm font-bold text-slate-700">Father's Name *</label>
+                    <input type="text" required className="input-style" placeholder="Guardian Name" />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm font-bold text-slate-700">Email Address *</label>
-                    <input type="email" required className="w-full px-5 py-4 rounded-xl border border-slate-200 focus:border-blue-600 outline-none transition-all" placeholder="john@example.com" />
+                    <label className="text-sm font-bold text-slate-700">CNIC / Form B *</label>
+                    <input type="text" required className="input-style" placeholder="00000-0000000-0" />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm font-bold text-slate-700">Phone Number *</label>
-                    <input type="tel" required className="w-full px-5 py-4 rounded-xl border border-slate-200 focus:border-blue-600 outline-none transition-all" placeholder="+1 (555) 000-0000" />
+                    <label className="text-sm font-bold text-slate-700">Date of Birth *</label>
+                    <input type="date" required className="input-style" />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm font-bold text-slate-700">Gender *</label>
+                    <select className="input-style bg-white">
+                      <option>Male</option>
+                      <option>Female</option>
+                      <option>Other</option>
+                    </select>
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm font-bold text-slate-700">Email ID *</label>
+                    <input type="email" required className="input-style" placeholder="email@example.com" />
                   </div>
                 </div>
               </div>
             )}
 
-            {/* STEP 2: ADDRESS & EDUCATION */}
+            {/* STEP 2: ADDRESS & CONTACT */}
             {step === 2 && (
               <div className="space-y-8 animate-in fade-in slide-in-from-right-4">
-                <div className="flex items-center gap-4 text-slate-900 mb-8">
-                  <div className="p-3 bg-blue-50 text-blue-600 rounded-xl"><LuMapPin size={24} /></div>
-                  <h2 className="text-2xl font-black">Background Information</h2>
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="p-3 bg-blue-50 text-blue-600 rounded-2xl"><LuMapPin size={24} /></div>
+                  <h2 className="text-2xl font-black text-slate-900">Contact & Location</h2>
                 </div>
 
                 <div className="space-y-6">
-                  <div className="space-y-2">
-                    <label className="text-sm font-bold text-slate-700">Residential Address</label>
-                    <input type="text" className="w-full px-5 py-4 rounded-xl border border-slate-200 focus:border-blue-600 outline-none transition-all" placeholder="Street name, City, Country" />
-                  </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <label className="text-sm font-bold text-slate-700">Highest Qualification *</label>
-                      <select className="w-full px-5 py-4 rounded-xl border border-slate-200 bg-white outline-none focus:border-blue-600">
-                        <option>High School</option>
-                        <option>Bachelor's Degree</option>
-                        <option>Master's Degree</option>
-                        <option>Professional Cert</option>
+                      <label className="text-sm font-bold text-slate-700">Mobile Number *</label>
+                      <input type="tel" className="input-style" placeholder="03XX-XXXXXXX" />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-bold text-slate-700">WhatsApp Number</label>
+                      <input type="tel" className="input-style" placeholder="03XX-XXXXXXX" />
+                    </div>
+                    <div className="md:col-span-2 space-y-2">
+                      <label className="text-sm font-bold text-slate-700">District (KPK) *</label>
+                      <select className="input-style bg-white">
+                        {KPK_DISTRICTS.map(d => <option key={d}>{d}</option>)}
                       </select>
                     </div>
                     <div className="space-y-2">
-                      <label className="text-sm font-bold text-slate-700">Year of Graduation</label>
-                      <input type="number" className="w-full px-5 py-4 rounded-xl border border-slate-200 focus:border-blue-600 outline-none transition-all" placeholder="2024" />
+                      <label className="text-sm font-bold text-slate-700">Permanent Address</label>
+                      <textarea className="input-style h-24 pt-4" placeholder="Full address..."></textarea>
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-bold text-slate-700">Postal Address</label>
+                      <textarea className="input-style h-24 pt-4" placeholder="Mailing address..."></textarea>
                     </div>
                   </div>
                 </div>
               </div>
             )}
 
-            {/* STEP 3: PROGRAM SELECTION */}
+            {/* STEP 3: ACADEMICS & ROLES */}
             {step === 3 && (
               <div className="space-y-8 animate-in fade-in slide-in-from-right-4">
-                <div className="flex items-center gap-4 text-slate-900 mb-8">
-                  <div className="p-3 bg-blue-50 text-blue-600 rounded-xl"><LuBookOpen size={24} /></div>
-                  <h2 className="text-2xl font-black">Program Choice</h2>
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="p-3 bg-blue-50 text-blue-600 rounded-2xl"><LuBookOpen size={24} /></div>
+                  <h2 className="text-2xl font-black text-slate-900">Academic Background</h2>
                 </div>
 
-                <div className="grid grid-cols-1 gap-4">
-                  {['Global Leadership Summit', 'Executive Management', 'Digital Transformation', 'Strategic Innovation'].map((course) => (
-                    <label key={course} className="flex items-center p-5 rounded-2xl border border-slate-100 bg-slate-50 cursor-pointer hover:border-blue-600 transition-all group">
-                      <input type="radio" name="course" className="w-5 h-5 text-blue-600 border-slate-300 focus:ring-blue-500" />
-                      <span className="ml-4 font-bold text-slate-700 group-hover:text-blue-600">{course}</span>
-                    </label>
-                  ))}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label className="text-sm font-bold text-slate-700">Current Grade/Class *</label>
+                    <select className="input-style bg-white">
+                      {[7,8,9,10,11,12].map(g => <option key={g}>{g}th Class</option>)}
+                    </select>
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm font-bold text-slate-700">Academic % (Last Year)</label>
+                    <input type="text" className="input-style" placeholder="e.g. 85%" />
+                  </div>
+                  <div className="md:col-span-2 space-y-2">
+                    <label className="text-sm font-bold text-slate-700">Name of Institute *</label>
+                    <input type="text" className="input-style" placeholder="School/College Name" />
+                  </div>
+                  <div className="md:col-span-2 space-y-4">
+                    <label className="text-sm font-bold text-slate-700">Extracurricular Involvement</label>
+                    <div className="flex flex-wrap gap-4">
+                      {['Debates', 'Sports', 'Social Work', 'Other'].map(item => (
+                        <label key={item} className="flex items-center gap-2 px-4 py-2 rounded-xl border border-slate-100 bg-slate-50 cursor-pointer hover:bg-blue-50 transition-all">
+                          <input type="checkbox" className="w-4 h-4 rounded text-blue-600" />
+                          <span className="text-sm font-medium">{item}</span>
+                        </label>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
             )}
 
-            {/* STEP 4: DOCUMENT UPLOAD */}
+            {/* STEP 4: COMMITMENT & UPLOAD */}
             {step === 4 && (
               <div className="space-y-8 animate-in fade-in slide-in-from-right-4">
-                <div className="flex items-center gap-4 text-slate-900 mb-8">
-                  <div className="p-3 bg-blue-50 text-blue-600 rounded-xl"><LuUpload size={24} /></div>
-                  <h2 className="text-2xl font-black">Document Upload</h2>
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="p-3 bg-blue-50 text-blue-600 rounded-2xl"><LuShieldCheck size={24} /></div>
+                  <h2 className="text-2xl font-black text-slate-900">Final Commitment</h2>
                 </div>
 
-                <div className="border-2 border-dashed border-slate-200 rounded-[2rem] p-12 text-center space-y-4 hover:border-blue-400 transition-colors cursor-pointer bg-slate-50">
-                  <div className="mx-auto w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-sm text-slate-400">
-                    <LuUpload size={28} />
+                <div className="space-y-6">
+                  <div className="space-y-4">
+                    <label className="text-sm font-bold text-slate-700">Affiliation with any other Organization?</label>
+                    <div className="flex gap-6">
+                      {['Yes', 'No'].map(val => (
+                        <label key={val} className="flex items-center gap-2 cursor-pointer">
+                          <input type="radio" name="affiliation" className="w-4 h-4 text-blue-600" />
+                          <span className="font-medium text-slate-700">{val}</span>
+                        </label>
+                      ))}
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-lg font-bold text-slate-900">Upload CV & Transcript</p>
-                    <p className="text-slate-500 text-sm">PDF, JPG or PNG (Max. 5MB)</p>
+
+                  <div className="space-y-2">
+                    <label className="text-sm font-bold text-slate-700">Why do you want to join us? *</label>
+                    <textarea className="input-style h-28 pt-4" placeholder="Your motivation..."></textarea>
                   </div>
-                  <input type="file" className="hidden" id="file-upload" multiple />
-                  <label htmlFor="file-upload" className="inline-block px-8 py-3 bg-white border border-slate-200 rounded-xl font-bold text-slate-700 hover:bg-slate-900 hover:text-white transition-all">
-                    Browse Files
+
+                  <div className="space-y-4">
+                    <label className="text-sm font-bold text-slate-700">Do you commit to regular attendance?</label>
+                    <div className="flex gap-6">
+                      {['Yes', 'No', 'Maybe'].map(val => (
+                        <label key={val} className="flex items-center gap-2 cursor-pointer">
+                          <input type="radio" name="attendance" className="w-4 h-4 text-blue-600" />
+                          <span className="font-medium text-slate-700">{val}</span>
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="border-2 border-dashed border-slate-200 rounded-3xl p-8 text-center bg-slate-50">
+                    <LuUpload className="mx-auto text-slate-400 mb-4" size={32} />
+                    <p className="font-bold text-slate-900">Upload Your Picture</p>
+                    <p className="text-xs text-slate-500 mb-4">Passport size, Max 2MB</p>
+                    <input type="file" className="hidden" id="pic" />
+                    <label htmlFor="pic" className="px-6 py-2 bg-white border border-slate-200 rounded-lg text-sm font-bold cursor-pointer hover:bg-slate-900 hover:text-white transition-all">Browse</label>
+                  </div>
+
+                  <label className="flex items-start gap-3 p-4 bg-blue-50 rounded-2xl cursor-pointer">
+                    <input type="checkbox" required className="mt-1" />
+                    <span className="text-xs text-blue-800 leading-relaxed font-medium">
+                      I have obtained **Parental Consent** to join this program and I agree to abide by the code of conduct.
+                    </span>
                   </label>
-                </div>
-
-                <div className="flex items-start gap-3 p-4 bg-blue-50 rounded-2xl border border-blue-100">
-                  <LuCheck className="text-blue-600 mt-1 flex-shrink-0" />
-                  <p className="text-xs text-blue-800 leading-relaxed">
-                    By submitting this application, I confirm that all information provided is accurate and I agree to the terms and conditions.
-                  </p>
                 </div>
               </div>
             )}
 
-            {/* Navigation Buttons */}
+            {/* Navigation */}
             <div className="mt-12 flex justify-between items-center pt-8 border-t border-slate-100">
               {step > 1 ? (
-                <button type="button" onClick={prevStep} className="flex items-center gap-2 font-bold text-slate-500 hover:text-slate-900 transition-colors">
+                <button type="button" onClick={prevStep} className="flex items-center gap-2 font-bold text-slate-500 hover:text-slate-900">
                   <LuChevronLeft /> Back
                 </button>
               ) : <div />}
 
               {step < 4 ? (
-                <button type="button" onClick={nextStep} className="px-10 py-4 bg-slate-900 text-white font-bold rounded-xl hover:bg-blue-600 transition-all flex items-center gap-2 shadow-lg shadow-slate-200">
-                  Continue <LuChevronRight />
+                <button type="button" onClick={nextStep} className="px-10 py-4 bg-slate-900 text-white font-bold rounded-2xl hover:bg-blue-600 transition-all flex items-center gap-2">
+                  Next Step <LuChevronRight />
                 </button>
               ) : (
-                <button type="submit" className="px-10 py-4 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition-all flex items-center gap-2 shadow-xl shadow-blue-200">
-                  Complete Registration <LuCheck />
+                <button type="submit" className="px-10 py-4 bg-blue-600 text-white font-bold rounded-2xl hover:bg-blue-700 transition-all flex items-center gap-2 shadow-xl shadow-blue-200">
+                  Submit Registration <LuCheck />
                 </button>
               )}
             </div>
           </form>
         </div>
       </div>
+
+      <style jsx>{`
+        .input-style {
+          width: 100%;
+          padding: 1rem 1.25rem;
+          border-radius: 1rem;
+          border: 1px solid #e2e8f0;
+          outline: none;
+          transition: all 0.2s;
+        }
+        .input-style:focus {
+          border-color: #2563eb;
+          box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+        }
+      `}</style>
     </section>
   )
 }

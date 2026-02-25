@@ -1,3 +1,4 @@
+import FAQ from '@/components/UserComp/FAQ'
 import React from 'react'
 import { LuPhone, LuMail, LuMapPin, LuClock, LuSend } from 'react-icons/lu'
 
@@ -123,6 +124,8 @@ const ContactPage = () => {
           </div>
         </div>
       </section>
+
+      <FAQ />
 
       {/* 3. Map Section (Placeholder) */}
       <section className="h-[450px] w-full bg-slate-100 relative grayscale hover:grayscale-0 transition-all duration-700">
