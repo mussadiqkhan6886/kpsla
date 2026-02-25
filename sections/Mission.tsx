@@ -15,7 +15,7 @@ const Mission = () => {
               fill 
               className="object-cover rounded-[22px]"
             />
-            <div className="absolute -bottom-6 -right-6 z-20 bg-blue-600 p-8 rounded-2xl hidden md:block">
+            <div className="absolute -bottom-6 -right-6 z-20 bg-orange-400 p-8 rounded-2xl hidden md:block">
               <p className="text-white font-bold text-3xl italic">"Impact through <br/> Knowledge"</p>
             </div>
           </div>

@@ -25,7 +25,7 @@ const AboutUs = () => {
         <div className="absolute top-0 right-0 w-1/3 h-full bg-blue-600/10 blur-[120px] -z-0" />
         <div className="container mx-auto px-6 relative z-10 text-center">
           <h4 className="text-blue-400 font-bold uppercase tracking-[0.3em] text-xs mb-4">
-            Established 2020
+            Established 2024
           </h4>
           <h1 className="text-4xl md:text-6xl font-black mb-8 leading-tight">
             Innovation. Leadership. <span className="text-blue-500">Legacy.</span>
@@ -54,14 +54,12 @@ const AboutUs = () => {
           <div className="w-full lg:w-1/2 space-y-6">
             <h2 className="text-3xl font-bold text-slate-900">How It All Started</h2>
             <p className="text-slate-600 leading-relaxed">
-              Founded in 2020, EDUPATH began with a simple observation: the world was changing 
+              Founded in 2024, KPSLA began with a simple observation: the world was changing 
               faster than leaders were being trained to handle it. We saw a gap between 
               traditional academic theory and the raw, adaptive skills needed in the real world.
             </p>
             <p className="text-slate-600 leading-relaxed">
-              What started as a small workshop for five professionals has grown into a 
-              global ecosystem. Today, we empower thousands of individuals to step into 
-              their power and lead with courage.
+               What began as a small initiative has grown into a recognized student movement focused on leadership development and educational excellence. Through dedication and teamwork, KPSLA continues to expand its reach and positive impact.
             </p>
           </div>
         </div>
@@ -101,17 +99,54 @@ const AboutUs = () => {
         </div>
       </section>
 
+
+<section className="py-18 bg-slate-50 overflow-hidden">
+        <div className="container mx-auto px-6">
+          <div className="flex flex-col lg:flex-row gap-16 items-center">
+            <div className="w-full lg:w-7/12 space-y-8">
+              <div className="inline-flex items-center gap-3 text-blue-600 font-bold uppercase text-sm tracking-widest">
+                Message from the Chairman
+                <div className="h-[2px] w-8 text-right bg-blue-600" />
+              </div>
+              <h2 className="text-3xl md:text-5xl font-black text-slate-900 leading-tight">
+  Cultivating a legacy of <span className="italic font-serif text-blue-600">integrity and purpose.</span>
+</h2>
+              <div className="relative">
+                <FaQuoteLeft className="absolute -top-4 -left-6 text-slate-200 text-6xl -z-10" />
+                <p className="text-slate-600 text-lg leading-relaxed italic">
+                  "A passionate youth leader dedicated to empowering students and building future leaders through structured leadership initiatives."
+                </p>
+              </div>
+              <div>
+                <h5 className="text-xl font-bold text-slate-900">Mr. Kamal Uddin</h5>
+                <p className="text-slate-500 font-medium">Chairman, KP Student Leadership</p>
+              </div>
+            </div>
+            <div className="w-full lg:w-5/12 relative group">
+              <div className="relative aspect-[3/4] rounded-[2rem] overflow-hidden shadow-2xl border-[12px] border-white">
+                <Image src="/chairman.jpeg" alt="President" fill className="object-cover" />
+              </div>
+              <div className="absolute -bottom-8 -right-4 bg-orange-400 p-8 rounded-2xl shadow-2xl transition-transform group-hover:scale-105">
+                <p className="text-white font-serif text-3xl italic">Mr. Kamal Uddin</p>
+                <p className="text-blue-200 text-[10px] font-black uppercase tracking-widest mt-2">Chairman</p>
+              </div>
+            </div>
+
+            
+          </div>
+        </div>
+      </section>
       {/* 5. PRESIDENT'S MESSAGE */}
       <section className="py-24 bg-slate-50 overflow-hidden">
         <div className="container mx-auto px-6">
           <div className="flex flex-col lg:flex-row gap-16 items-center">
             <div className="w-full lg:w-5/12 relative group">
               <div className="relative aspect-[3/4] rounded-[2rem] overflow-hidden shadow-2xl border-[12px] border-white">
-                <Image src="/president.jpg" alt="President" fill className="object-cover" />
+                <Image src="/president.jpeg" alt="President" fill className="object-cover" />
               </div>
-              <div className="absolute -bottom-8 -right-4 bg-blue-600 p-8 rounded-2xl shadow-2xl transition-transform group-hover:scale-105">
-                <p className="text-white font-serif text-3xl italic">A. Sterling</p>
-                <p className="text-blue-200 text-[10px] font-black uppercase tracking-widest mt-2">Founding President</p>
+              <div className="absolute -bottom-8 -right-4 bg-orange-400 p-8 rounded-2xl shadow-2xl transition-transform group-hover:scale-105">
+                <p className="text-white font-serif text-3xl italic">Mr. Rahim Uddin</p>
+                <p className="text-blue-200 text-[10px] font-black uppercase tracking-widest mt-2">President</p>
               </div>
             </div>
 
@@ -126,20 +161,24 @@ const AboutUs = () => {
               <div className="relative">
                 <FaQuoteLeft className="absolute -top-4 -left-6 text-slate-200 text-6xl -z-10" />
                 <p className="text-slate-600 text-lg leading-relaxed italic">
-                  "At the heart of every great organization is not just a plan, but a person with the courage to see things differently. Our mission is to ensure that you are that person."
+                  "Welcome to the KP Students Leadership Association! Our platform is dedicated to developing young leaders. Engage actively, share your ideas, and together let’s build a brighter future.
+                  <br />
+                    This association provides opportunities to enhance your skills, participate in meaningful activities, and make a positive impact in your community. We believe in teamwork, innovation, and empowering every student to reach their full potential."
                 </p>
               </div>
               <div>
-                <h5 className="text-xl font-bold text-slate-900">Alex Sterling</h5>
-                <p className="text-slate-500 font-medium">President & CEO, EduPath Leadership</p>
+                <h5 className="text-xl font-bold text-slate-900">Mr. Rahim Uddin</h5>
+                <p className="text-slate-500 font-medium">President, KP Student Leadership</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
+      
+
       {/* 6. TEAM MEMBERS GRID */}
-      <section className="py-24 bg-white">
+      <section className="py-18 bg-white">
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 text-center md:text-left">
             <div className="max-w-xl">
