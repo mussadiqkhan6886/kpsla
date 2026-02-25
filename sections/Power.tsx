@@ -1,11 +1,11 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 import { HiArrowRight } from 'react-icons/hi'
 
 const Power = () => {
   return (
     <section className="relative py-24 bg-slate-900 overflow-hidden">
-      {/* Background Glow Effect */}
       <div className="absolute -top-24 -left-24 h-96 w-96 rounded-full bg-blue-600/20 blur-[120px]" />
       
       <div className="container mx-auto px-6">
@@ -15,7 +15,7 @@ const Power = () => {
           <div className="w-full lg:w-1/2 z-10">
             <h3 className="text-4xl md:text-5xl font-black text-white leading-tight mb-8">
               We don’t just develop leaders, <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
+              <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
                 we unleash them.
               </span>
             </h3>
@@ -38,11 +38,11 @@ const Power = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-wrap items-center gap-5 mt-10">
-              <button className="flex items-center gap-2 px-8 py-4 bg-blue-600 text-white font-bold rounded-full hover:bg-blue-500 transition-all hover:scale-105 active:scale-95 shadow-xl shadow-blue-900/20">
-                Join now <HiArrowRight />
+              <button className="flex items-center gap-2  bg-blue-600 px-8  text-white font-bold rounded-full hover:bg-blue-500 transition-all hover:scale-105 active:scale-95 shadow-xl shadow-blue-900/20">
+                <Link className='inline-block py-4' href={"/get-involved"} >Join now</Link> <HiArrowRight />
               </button>
-              <button className="px-8 py-4 border border-slate-700 text-slate-300 font-bold rounded-full hover:bg-slate-800 hover:text-white transition-all">
-                More about us
+              <button className="border border-slate-700 text-slate-300 font-bold rounded-full hover:bg-slate-800 hover:text-white transition-all">
+                <Link className='inline-block px-8 py-4' href="/about-us">More about us</Link>
               </button>
             </div>
           </div>
@@ -50,8 +50,6 @@ const Power = () => {
           {/* Image Container with Stylized Frame */}
           <div className="w-full lg:w-1/2 relative group">
             <div className="relative aspect-[4/5] w-full max-w-md mx-auto">
-              {/* Decorative Frame Elements */}
-              <div className="absolute -inset-4 border border-slate-700 rounded-3xl translate-x-4 translate-y-4 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-500" />
               
               <div className="relative h-full w-full overflow-hidden rounded-2xl grayscale hover:grayscale-0 transition-all duration-700">
                 <Image 

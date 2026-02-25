@@ -26,7 +26,7 @@ const Mission = () => {
             </h2>
             <h3 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-8 leading-tight">
               Bridging the gap between <br /> 
-              <span className="text-blue-600 underline decoration-blue-100 underline-offset-8">potential and achievement</span>
+              <span className="text-blue-600">potential and achievement</span>
             </h3>
 
             <div className="space-y-6 text-slate-600 text-lg leading-relaxed">
@@ -38,8 +38,8 @@ const Mission = () => {
                 Our curriculum isn't just about passing exams; it's about building the character and critical thinking skills required to lead in the 21st century. We foster an environment of curiosity and resilience.
               </p>
 
-              <p className="italic font-medium text-slate-500">
-                "We don't just teach subjects; we inspire the next generation of global citizens to think bigger and act bolder."
+              <p className="italic text-sm font-medium text-slate-500">
+                "To develop confident, responsible, and visionary student leaders through structured leadership programs, mentorship, and community engagement initiatives."
               </p>
             </div>
 

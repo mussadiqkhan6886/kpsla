@@ -40,7 +40,7 @@ const Header = () => {
 
           {/* CTA Group */}
           <div className="flex items-center gap-3">
-            <button className="hidden rounded-full bg-blue-600 text-sm font-semibold text-white transition-all hover:bg-blue-700 hover:shadow-lg active:scale-95 sm:block">
+            <button className="hidden rounded-full bg-blue-600 text-sm font-semibold text-white transition-all border border-transparent hover:scale-105 hover:text-blue-600 hover:bg-white hover:border-blue-600 hover:shadow-lg active:scale-95 sm:block">
               <Link className='px-5 inline-block py-2.5' href={"/registration"}>Become a Member</Link>
             </button>
             

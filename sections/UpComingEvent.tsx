@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 import { LuCalendar, LuMapPin, LuArrowRight } from 'react-icons/lu'
 
@@ -18,7 +19,7 @@ const UpComingEvent = () => {
             </h2>
           </div>
           <button className="text-blue-600 font-bold flex items-center gap-2 hover:gap-3 transition-all">
-            View All Events <LuArrowRight />
+            <Link href={"/events"}>View All Events</Link> <LuArrowRight />
           </button>
         </div>
 
@@ -60,14 +61,7 @@ const UpComingEvent = () => {
               and organizational resilience. Perfect for emerging managers and career-driven professionals.
             </p>
 
-            <div className="flex flex-wrap gap-4 mt-auto">
-              <button className="px-8 py-3 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition-colors shadow-lg shadow-blue-200">
-                Register Now
-              </button>
-              <button className="px-8 py-3 border border-slate-200 text-slate-700 font-bold rounded-xl hover:bg-slate-50 transition-colors">
-                Event Details
-              </button>
-            </div>
+            
           </div>
         </div>
 

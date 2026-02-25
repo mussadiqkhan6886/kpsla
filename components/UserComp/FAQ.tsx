@@ -1,29 +1,30 @@
 "use client"
+import Link from 'next/link';
 import React, { useState } from 'react'
 import { LuChevronDown, LuHandHelping } from 'react-icons/lu'
 
 const faqs = [
   {
-    question: "Who can join the EduPath community?",
-    answer: "Anyone passionate about leadership! Our student membership is geared toward undergraduates and postgraduates, while our mentor and volunteer roles are open to industry professionals with 3+ years of experience."
+    question: "Who can join the KPSLA community?",
+    answer: "Membership is primarily open to students across Khyber Pakhtunkhwa from Grade 7 to Grade 12. We also encourage university students and young professionals to apply as mentors or event volunteers."
   },
   {
-    question: "Is there a membership fee for students?",
-    answer: "Basic membership is completely free. We also offer a 'Premium Scholar' tier for $10/month which includes certified masterclasses and priority access to our annual Global Leadership Summit."
+    question: "Is there a fee for registration or membership?",
+    answer: "No. KPSLA is a student-led movement dedicated to empowerment. Basic registration and participation in our core leadership programs are free of charge for all eligible students in KP."
   },
   {
-    question: "How do I apply for a sponsorship or partnership?",
-    answer: "You can navigate to the 'Sponsor' tab on our Get Involved page and download our Pitch Deck. Once reviewed, fill out the inquiry form, and our Partnership Director will contact you within 48 hours."
+    question: "How do I receive a certificate for my participation?",
+    answer: "Certificates are issued upon the successful completion of specific milestones, such as attending our annual Leadership Development Conference or finishing a full term of our character-building workshops."
   },
   {
-    question: "Can I volunteer if I live outside the US?",
-    answer: "Absolutely! We are a global collective. Over 60% of our volunteers and mentors work remotely, helping us manage virtual workshops and international student chapters."
+    question: "Why is parental consent required for registration?",
+    answer: "As we serve a younger demographic (Grade 7-12), we prioritize student safety. Parental consent ensures that guardians are aware of their child's involvement in our educational and community activities."
   },
   {
-    question: "Will I receive a certificate for participating?",
-    answer: "Yes. All members who complete our core leadership modules and all event volunteers receive a digital, blockchain-verified certificate of achievement to add to their LinkedIn profiles."
+    question: "Can I join KPSLA if I am not from Mardan?",
+    answer: "Absolutely! While our headquarters is in Mardan, KPSLA is a provincial movement. We aim to have active student chapters and events across all districts of Khyber Pakhtunkhwa."
   }
-]
+];
 
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -87,7 +88,7 @@ const FAQ = () => {
           <div className="mt-16 p-8 rounded-[2rem] bg-slate-900 text-center text-white">
             <p className="text-slate-400 mb-4">Still have a specific question?</p>
             <button className="font-bold text-blue-400 hover:text-white transition-colors underline underline-offset-8">
-              Chat with our Support Team
+              <Link href={"/contact-us"} >Chat with our Support Team</Link>
             </button>
           </div>
         </div>
