@@ -36,10 +36,18 @@ const Hero = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row items-center gap-4 pt-4 justify-center lg:justify-start">
-            <button className="w-full sm:w-auto  bg-blue-600 text-white font-bold rounded-xl shadow-lg shadow-blue-200 hover:bg-blue-700 hover:-translate-y-1 transition-all active:scale-95">
-              <Link className='inline-block px-8 py-4' href={"/registration"}>Join Us</Link>
-            </button>
-            <button className="w-full sm:w-auto border-2 border-slate-200 text-slate-700 font-bold rounded-xl hover:bg-slate-100 transition-all active:scale-95">
+            <button
+                className="font-semibold px-8 py-4 rounded-xl border border-sky-700 bg-white text-blue-600 relative overflow-hidden cursor-pointer group z-10 hover:text-white duration-1000"
+                >
+                <span
+                    className="absolute bg-blue-500 w-80 h-40 rounded-full group-hover:scale-100 scale-0 -z-10 -left-2 -top-10 group-hover:duration-500 duration-700 origin-center transform transition-all"
+                ></span>
+                <span
+                    className="absolute bg-blue-800 w-80 h-40 -left-2 -top-10 rounded-full group-hover:scale-100 scale-0 -z-10 group-hover:duration-700 duration-500 origin-center transform transition-all"
+                ></span>
+                <Link href="/registration">Join Us</Link>
+                </button>
+            <button className="w-full sm:w-auto border-2 bg-orange-400 border-slate-200 text-white font-bold rounded-xl transition-all active:scale-95">
               <Link className='inline-block px-8 py-4' href="/about-us">Learn More</Link>
             </button>
           </div>

@@ -6,6 +6,7 @@ import React, { useState } from 'react'
 import { FaWhatsapp } from 'react-icons/fa'
 import {FiMenu} from "react-icons/fi"
 import SideBar from './SideBar';
+import Image from 'next/image';
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,7 +17,7 @@ const Header = () => {
         {/* Logo Section */}
         <div className="flex items-center">
           <Link href="/" className="text-2xl font-bold tracking-tight text-blue-600">
-            EDU<span className="text-slate-900">PATH</span>
+            <Image src={"/logo.jpeg"} alt='logo image header' width={30} height={30} priority className='w-20 h-20 object-cover' />
           </Link>
         </div>
 
