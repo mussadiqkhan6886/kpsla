@@ -1,4 +1,5 @@
 import FAQ from '@/components/UserComp/FAQ'
+import Link from 'next/link'
 import React from 'react'
 import { LuPhone, LuMail, LuMapPin, LuClock, LuSend } from 'react-icons/lu'
 
@@ -158,13 +159,13 @@ const ContactPage = () => {
         Khyber Pakhtunkhwa, <br />
         Pakistan.
       </p>
-      <a 
+      <Link 
         href="https://maps.google.com" 
         target="_blank" 
         className="mt-4 inline-block text-blue-600 text-xs font-bold uppercase tracking-wider hover:text-blue-800"
       >
         Get Directions →
-      </a>
+      </Link>
     </div>
   </div>
 </section>
