@@ -1,4 +1,5 @@
 import Counter from '@/sections/Counter'
+import CTA from '@/sections/CTA'
 import Hero from '@/sections/Hero'
 import Mission from '@/sections/Mission'
 import Power from '@/sections/Power'
@@ -17,6 +18,7 @@ const Home = () => {
       <WhatWeDo />
       <UpComingEvent />
       <SuccessStories />
+      <CTA />
     </main>
   )
 }
