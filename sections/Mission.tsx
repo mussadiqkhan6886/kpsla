@@ -43,16 +43,7 @@ const Mission = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-8 mt-10 border-t pt-10">
-              <div>
-                <span className="block text-3xl font-bold text-slate-900">95%</span>
-                <span className="text-sm text-slate-500 uppercase tracking-wide font-semibold">Success Rate</span>
-              </div>
-              <div>
-                <span className="block text-3xl font-bold text-slate-900">12k+</span>
-                <span className="text-sm text-slate-500 uppercase tracking-wide font-semibold">Global Alumni</span>
-              </div>
-            </div>
+           
           </div>
 
         </div>

@@ -1,9 +1,10 @@
+import CountUp from '@/components/UserComp/ui/CountUp'
 import React from 'react'
 
 const stats = [
-  { label: 'Leaders Trained', value: '15k+', color: 'text-blue-600', bg: 'bg-blue-50' },
-  { label: 'Success Rate', value: '98%', color: 'text-blue-600', bg: 'bg-green-50' },
-  { label: 'Global Partners', value: '500+', color: 'text-blue-600', bg: 'bg-purple-50' },
+  { label: 'Leaders Trained', value: 15, extend: "k+", color: 'text-blue-600', bg: 'bg-blue-50' },
+  { label: 'Success Rate', value: 98, extend: "%", color: 'text-blue-600', bg: 'bg-green-50' },
+  { label: 'Global Partners', value: 500, extend: "+", color: 'text-blue-600', bg: 'bg-purple-50' },
 ]
 
 const Counter = () => {
@@ -32,11 +33,16 @@ const Counter = () => {
               <div className={`absolute top-6 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full opacity-20 blur-xl ${stat.bg}`} />
               
               <div className="relative z-10">
-                <span className={`block text-5xl md:text-6xl font-black mb-4 tracking-tight ${stat.color}`}>
-                  {stat.value}
-                </span>
+                <CountUp
+                    from={0}
+                    to={stat.value}
+                    separator=","
+                    direction="up"
+                    duration={1}
+                    className="count-up-text font-black tracking-tight mb-3 inline-block text-6xl text-blue-600 "
+                /> <span className='font-black mb-3 inline-block text-6xl text-blue-600 '>{stat.extend}</span>
                 <p className="text-slate-500 font-bold uppercase tracking-widest text-sm">
-                  {stat.label}
+                  {stat.label} 
                 </p>
               </div>
 
