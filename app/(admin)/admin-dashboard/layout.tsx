@@ -1,3 +1,4 @@
+import AdminHeader from "@/components/adminComp/AdminHeader";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -12,6 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <>
+    <AdminHeader />
     {children}
     </>
   );
