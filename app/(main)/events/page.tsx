@@ -2,6 +2,8 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { LuCalendar, LuMapPin, LuArrowRight, LuCirclePlay } from 'react-icons/lu'
+import { EventSchema } from '@/lib/models/EventSchema';
+import { connectDB } from '@/lib/config/database';
 
 // --- Mock Data ---
 const upcomingEvents = [
@@ -25,13 +27,13 @@ const upcomingEvents = [
   }
 ];
 
-const pastEvents = [
-  { id: 3, title: "Leadership Retreat 2025", date: "Dec 2025", image: "/hero.jpg" },
-  { id: 4, title: "Innovation Forum", date: "Oct 2025", image: "/hero.jpg" },
-  { id: 5, title: "Youth Lead Workshop", date: "Aug 2025", image: "/hero.jpg" },
-];
 
-const EventsPage = () => {
+const EventsPage = async () => {
+
+  await connectDB()
+
+  const res = await EventSchema.find({isPast: true}).sort({date: 1}).lean()
+
   return (
     <main className="pt-20 bg-white">
       {/* 1. Header */}
@@ -90,18 +92,17 @@ const EventsPage = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {pastEvents.map((event) => (
-              <div key={event.id} className="bg-white rounded-3xl overflow-hidden shadow-sm group cursor-pointer border border-slate-100">
+            {res.map((event) => (
+              <div key={event._id} className="bg-white rounded-3xl overflow-hidden shadow-sm group  border border-slate-100">
                 <div className="relative h-64">
-                  <Image src={event.image} alt={event.title} fill className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
-                  <div className="absolute inset-0 bg-slate-900/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                    <LuCirclePlay className="text-white text-6xl" />
-                  </div>
+                  <Image src={event.image} alt={event.title} fill className="object-cover transition-all duration-500" />
                 </div>
                 <div className="p-6">
-                  <span className="text-blue-600 font-bold text-xs uppercase tracking-widest">{event.date}</span>
+                  <span className="text-blue-600 font-bold text-xs uppercase tracking-widest">{new Date(event.date).getDate()}</span>
+                  <span className="text-blue-600 inline-block ml-1 font-bold text-xs uppercase tracking-widest">{new Date(event.date).toLocaleString('en-US', { month: 'short' })}</span>
+                  <span className="text-blue-600 inline-block ml-1 font-bold text-xs uppercase tracking-widest">{new Date(event.date).getFullYear()}</span>
                   <h4 className="text-xl font-bold text-slate-900 mt-2">{event.title}</h4>
-                  <p className='text-zinc-700 mt-2 tracking-wide text-base'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti cupiditate ex iure, assumenda architecto repellendus delectus harum rerum suscipit saepe hic deleniti ducimus omnis neque cum, laudantium quos eum? Aspernatur?</p>
+                  <p className='text-zinc-700 mt-2 tracking-wide text-base'>{event.description}</p>
                 </div>
               </div>
             ))}
