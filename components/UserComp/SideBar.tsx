@@ -19,7 +19,7 @@ const SideBar = ({ isOpen, onClose }: SideBarProps) => {
       />
 
       <aside 
-        className={`fixed top-0 right-0 z-70 h-screen w-[280px] bg-white shadow-2xl transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 right-0 z-70 h-dvh w-[280px] bg-white shadow-2xl transition-transform duration-300 ease-in-out ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
@@ -54,7 +54,7 @@ const SideBar = ({ isOpen, onClose }: SideBarProps) => {
           </nav>
 
           {/* Bottom Actions */}
-          <div className="mt-auto border-t pt-6 space-y-4">
+          <div className="mt-auto mb-10 border-t pt-6 space-y-4">
             <button className="w-full rounded-xl bg-blue-600 py-3 font-semibold text-white shadow-md active:scale-95 transition-transform">
               Become a Member
             </button>

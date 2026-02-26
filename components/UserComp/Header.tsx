@@ -51,7 +51,7 @@ const Header = () => {
             >
               <FaWhatsapp size={20} />
             </button>
-            <FiMenu onClick={() => setIsMenuOpen(true)} className='block lg:hidden' />
+            <FiMenu size={28} onClick={() => setIsMenuOpen(true)} className='block lg:hidden' />
             {isMenuOpen && <SideBar isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />}
           </div>
         </div>

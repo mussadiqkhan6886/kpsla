@@ -13,7 +13,7 @@ const Footer = () => {
           {/* Column 1: Brand & Bio */}
           <div className="space-y-6">
             <Link href="/" className="text-2xl font-bold text-white tracking-tight">
-              EDU<span className="text-blue-500">PATH</span>
+              KPSLA
             </Link>
             <p className="text-sm leading-relaxed text-slate-400">
               Empowering the next generation of leaders through bold programs, 
@@ -57,7 +57,7 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="border-t border-slate-900 p-3 flex justify-center items-center gap-4 text-xs font-medium text-slate-500 uppercase tracking-widest">
-          <p>© {currentYear} EDUPATH LEADERSHIP. ALL RIGHTS RESERVED.</p>
+          <p>© {currentYear} KPSLA LEADERSHIP. ALL RIGHTS RESERVED.</p>
         </div>
       </div>
     </footer>

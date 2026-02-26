@@ -60,7 +60,7 @@ const PrivacyPolicy = () => {
             <div className="lg:w-2/3 prose prose-slate max-w-none">
               <h2 className="text-2xl font-black text-slate-900 mb-6">1. Introduction</h2>
               <p className="text-slate-600 leading-relaxed mb-8">
-                Welcome to EduPath. We are committed to protecting the privacy of our students, particularly those under the age of 18. This policy outlines how we handle the personal information collected through our registration forms.
+                Welcome to KPSLA. We are committed to protecting the privacy of our students, particularly those under the age of 18. This policy outlines how we handle the personal information collected through our registration forms.
               </p>
 
               <h2 className="text-2xl font-black text-slate-900 mb-6">2. Information We Collect</h2>
@@ -93,7 +93,7 @@ const PrivacyPolicy = () => {
                 <h4 className="font-bold text-blue-900 mb-2">Contact Our Privacy Officer</h4>
                 <p className="text-blue-800 text-sm">
                   If you have questions regarding your data, please contact us at: 
-                  <span className="font-bold ml-1">privacy@edupath.com</span>
+                  <span className="font-bold ml-1">privacy@KPSLA.com</span>
                 </p>
               </div>
             </div>

@@ -13,7 +13,7 @@ const Power = () => {
           
           {/* Text Content */}
           <div className="w-full lg:w-1/2 z-10">
-            <h3 className="text-4xl md:text-5xl font-black text-white leading-tight mb-8">
+            <h3 className="text-[34px] md:text-5xl font-black text-white leading-tight mb-8">
               We don’t just develop leaders, <br />
               <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
                 we unleash them.

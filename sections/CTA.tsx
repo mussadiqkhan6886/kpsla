@@ -32,7 +32,7 @@ const CTA = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
         
                 <button
-                className="text-xl px-10 py-5 hover:scale-105 rounded-2xl border border-sky-700 bg-white text-blue-600 relative overflow-hidden group z-10 hover:text-white duration-1000"
+                className="text-xl px-8 sm:px-10 py-5 hover:scale-105 rounded-2xl border border-sky-700 bg-white text-blue-600 relative overflow-hidden group z-10 hover:text-white duration-1000"
                 >
                 <span
                     className="absolute bg-blue-500 w-70 h-38 rounded-full group-hover:scale-100 scale-0 -z-10 -left-2 -top-10 group-hover:duration-500 duration-700 origin-center transform transition-all"
@@ -44,7 +44,7 @@ const CTA = () => {
                 </button>
 
               
-              <button className="w-full sm:w-auto px-10 py-5 bg-transparent border-2 border-white/30 text-white font-bold text-lg rounded-2xl hover:bg-white/10 transition-all">
+              <button className="w-full sm:w-auto px-6 sm:px-10 py-5 bg-transparent border-2 border-white/30 text-white font-bold text-lg rounded-2xl hover:bg-white/10 transition-all">
                 Contact Admissions
               </button>
             </div>

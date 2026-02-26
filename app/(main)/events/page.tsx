@@ -66,21 +66,14 @@ const EventsPage = () => {
                     <span className="block text-xs font-bold uppercase text-slate-500 mt-1">{event.date.split(' ')[0]}</span>
                   </div>
                 </div>
-                <div className="lg:w-3/5 p-8 lg:p-16 flex flex-col justify-center">
+                <div className="lg:w-3/5 p-6 lg:p-16 flex flex-col justify-center">
                   <div className="flex flex-wrap gap-4 mb-6 text-sm font-bold text-blue-600 uppercase tracking-widest">
                     <span className="flex items-center gap-2"><LuCalendar /> {event.time}</span>
                     <span className="flex items-center gap-2"><LuMapPin /> {event.location}</span>
                   </div>
                   <h3 className="text-3xl font-black text-slate-900 mb-6">{event.title}</h3>
                   <p className="text-slate-600 text-lg mb-8 leading-relaxed">{event.desc}</p>
-                  <div className="flex flex-wrap gap-4">
-                    <button className="px-8 py-4 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition-all flex items-center gap-2">
-                      Secure My Spot <LuArrowRight />
-                    </button>
-                    <button className="px-8 py-4 border border-slate-200 text-slate-700 font-bold rounded-xl hover:bg-white transition-all">
-                      View Itinerary
-                    </button>
-                  </div>
+                  
                 </div>
               </div>
             ))}
@@ -92,8 +85,8 @@ const EventsPage = () => {
       <section className="py-24 bg-slate-50">
         <div className="container mx-auto px-6">
           <div className="mb-16">
-            <h2 className="text-3xl font-black text-slate-900">Past Highlights</h2>
-            <p className="text-slate-500 mt-2">Missed an event? Catch up on the key takeaways and recordings.</p>
+            <h2 className="text-3xl font-black text-slate-900">Past Events</h2>
+            <p className="text-slate-500 mt-2">Our past events around the KPK.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -108,9 +101,7 @@ const EventsPage = () => {
                 <div className="p-6">
                   <span className="text-blue-600 font-bold text-xs uppercase tracking-widest">{event.date}</span>
                   <h4 className="text-xl font-bold text-slate-900 mt-2">{event.title}</h4>
-                  <Link href="#" className="inline-block mt-4 text-slate-500 font-bold text-sm hover:text-blue-600 transition-colors underline underline-offset-4">
-                    View Recap
-                  </Link>
+                  <p className='text-zinc-700 mt-2 tracking-wide text-base'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti cupiditate ex iure, assumenda architecto repellendus delectus harum rerum suscipit saepe hic deleniti ducimus omnis neque cum, laudantium quos eum? Aspernatur?</p>
                 </div>
               </div>
             ))}

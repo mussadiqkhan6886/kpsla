@@ -64,7 +64,7 @@ const TermsOfService = () => {
                 1. Acceptance of Terms
               </h2>
               <p className="text-slate-600 leading-relaxed">
-                By accessing EduPath and registering for a student membership, you confirm that you are at least 13 years of age or possess legal parental or guardian consent, and that you are fully able and competent to enter into the terms, conditions, obligations, and representations set forth in these Terms.
+                By accessing K and registering for a student membership, you confirm that you are at least 13 years of age or possess legal parental or guardian consent, and that you are fully able and competent to enter into the terms, conditions, obligations, and representations set forth in these Terms.
               </p>
             </div>
 
@@ -100,7 +100,7 @@ const TermsOfService = () => {
                 3. Intellectual Property
               </h2>
               <p className="text-slate-600 leading-relaxed">
-                All training materials, summit recordings, and curriculum provided by EduPath are for personal use only. You may not distribute, modify, or sell our content without explicit written permission.
+                All training materials, summit recordings, and curriculum provided by K are for personal use only. You may not distribute, modify, or sell our content without explicit written permission.
               </p>
             </div>
 
@@ -118,7 +118,7 @@ const TermsOfService = () => {
                 5. Limitation of Liability
               </h2>
               <p className="text-slate-600 leading-relaxed italic">
-                EduPath and its affiliates shall not be liable for any indirect, incidental, or consequential damages resulting from your participation in our events or your inability to use the platform.
+                KPSLA and its affiliates shall not be liable for any indirect, incidental, or consequential damages resulting from your participation in our events or your inability to use the platform.
               </p>
             </div>
 
@@ -128,7 +128,7 @@ const TermsOfService = () => {
           <div className="mt-20 pt-12 border-t border-slate-100 text-center">
             <p className="text-slate-500 text-sm">
               If you have any questions about these Terms, please contact our legal team at 
-              <span className="text-blue-600 font-bold ml-1">legal@edupath.com</span>
+              <span className="text-blue-600 font-bold ml-1">legal@K.com</span>
             </p>
           </div>
         </div>

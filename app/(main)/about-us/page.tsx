@@ -31,7 +31,7 @@ const AboutUs = () => {
             Innovation. Leadership. <span className="text-blue-500">Legacy.</span>
           </h1>
           <p className="text-slate-400 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto">
-            EduPath is a global leadership collective dedicated to high-performance training. 
+            KPSLA is a global leadership collective dedicated to high-performance training. 
             We combine neuroscience, behavioral psychology, and practical strategy to 
             help professionals transition from managers to true visionary leaders.
           </p>

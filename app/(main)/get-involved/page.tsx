@@ -3,6 +3,8 @@ import React, { useState } from 'react'
 import Image from 'next/image'
 import { LuUsers, LuHandshake, LuGraduationCap, LuHeart, LuSend, LuDownload, LuCheck } from 'react-icons/lu'
 import Link from 'next/link'
+import Counter from '@/sections/Counter'
+import { FiPhoneCall } from 'react-icons/fi'
 
 const GetInvolvedPage = () => {
   const [activeTab, setActiveTab] = useState('student');
@@ -27,17 +29,17 @@ const GetInvolvedPage = () => {
       {/* 2. Selection Tabs */}
       <section className="sticky top-20 z-40 bg-white border-b border-slate-100 shadow-sm">
         <div className="container mx-auto px-6">
-          <div className="flex justify-center gap-4 md:gap-12">
+          <div className="flex justify-center gap-6 md:gap-12">
             {[
-              { id: 'student', label: 'For Students', icon: <LuGraduationCap /> },
-              { id: 'volunteer', label: 'For Volunteers', icon: <LuUsers /> },
-              { id: 'sponsor', label: 'For Sponsors', icon: <LuHandshake /> }
+              { id: 'student', label: 'For Students', icon: <LuGraduationCap className='hidden sm:inline' /> },
+              { id: 'volunteer', label: 'For Volunteers', icon: <LuUsers className='hidden sm:inline' /> },
+              { id: 'sponsor', label: 'For Sponsors', icon: <LuHandshake className='hidden sm:inline' /> }
             ].map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center gap-2 py-6 text-sm font-black uppercase tracking-widest transition-all border-b-2 ${
-                  activeTab === tab.id ? 'border-blue-600 text-blue-600' : 'border-transparent text-slate-400 hover:text-slate-600'
+                className={`flex items-center gap-2 py-6 font-black uppercase tracking-widest transition-all border-b-2 ${
+                  activeTab === tab.id ? 'border-blue-600 text-blue-600 text-sm' : 'text-[12px] border-transparent text-slate-400 hover:text-slate-600'
                 }`}
               >
                 {tab.icon} {tab.label}
@@ -56,7 +58,7 @@ const GetInvolvedPage = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 animate-in fade-in slide-in-from-bottom-4">
               <div className="space-y-8">
                 <h2 className="text-4xl font-black text-slate-900 uppercase">Student Membership</h2>
-                <p className="text-slate-600 text-lg">Join a network of over 5,000+ ambitious students worldwide. Gain the tools you need to lead.</p>
+                <p className="text-slate-600 text-lg">Join a network of over 5,000+ ambitious students. Gain the tools you need to lead.</p>
                 <div className="space-y-4">
                   {[
                     "Access to exclusive networking events",
@@ -72,7 +74,7 @@ const GetInvolvedPage = () => {
               </div>
               <form className="bg-slate-50 p-8 md:p-10 rounded-[2.5rem] border border-slate-100 space-y-4">
                 <h3 className="text-xl font-bold mb-6">Register for Membership</h3>
-                <Link href={"/registration"} className="w-full py-4 bg-blue-600 text-white font-black rounded-xl hover:bg-blue-700 transition-all shadow-xl shadow-blue-100">
+                <Link href={"/registration"} className="w-full py-4 bg-blue-600 text-white font-black rounded-xl hover:bg-blue-700 transition-all shadow-xl inline-block text-center shadow-blue-100">
                   Become a Member
                 </Link>
               </form>
@@ -115,19 +117,19 @@ const GetInvolvedPage = () => {
                 <div className="lg:w-2/3 space-y-6">
                   <h2 className="text-4xl font-black uppercase">Empower Youth Leadership</h2>
                   <p className="text-blue-100 text-lg">Your sponsorship provides scholarships, resources, and platforms for the leaders of tomorrow. Brand visibility at our events reaches over 50k+ viewers.</p>
-                  <div className="flex flex-wrap gap-4">
-                    <button className="px-8 py-4 bg-white text-blue-600 font-black rounded-xl flex items-center gap-2 hover:bg-slate-100 transition-all">
-                      <LuDownload /> Download Pitch Deck (PDF)
+                  <div className="flex items-center justify-center flex-wrap gap-4">
+                    <button className="px-8 py-4 bg-green-500 text-green-100 font-black rounded-xl flex items-center gap-2 ">
+                      <FiPhoneCall /> Whatsapp
                     </button>
                   </div>
                 </div>
-                <div className="lg:w-1/3 bg-white/10 p-8 rounded-[2rem] backdrop-blur-md border border-white/20">
+                <div className="lg:w-1/3 bg-white/10 p-4 md:p-8 rounded-[2rem] backdrop-blur-md border border-white/20">
                   <h4 className="font-bold text-center mb-6 text-white">Direct Inquiry</h4>
                   <div className="space-y-4">
                     <input type="text" placeholder="Company Name" className="w-full px-6 py-3 rounded-xl bg-white/20 border-none placeholder-white/60 text-white outline-none" />
                     <input type="email" placeholder="Corporate Email" className="w-full px-6 py-3 rounded-xl bg-white/20 border-none placeholder-white/60 text-white outline-none" />
                     <button className="w-full py-4 bg-white text-blue-600 font-black rounded-xl flex items-center justify-center gap-2">
-                      Request Callback <LuSend />
+                      Request <LuSend />
                     </button>
                   </div>
                 </div>
@@ -138,25 +140,7 @@ const GetInvolvedPage = () => {
         </div>
       </section>
 
-      {/* 4. Closing Statistics (Impact Section - Reused from your design) */}
-      <section className="py-24 bg-slate-50">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-3xl font-black text-slate-900 mb-16 uppercase tracking-tighter">Your contribution in numbers</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {[
-              { val: "5K+", label: "Volunteer Hours" },
-              { val: "45+", label: "Countries" },
-              { val: "120+", label: "Corporate Partners" },
-              { val: "200+", label: "Scholarships" }
-            ].map((stat, i) => (
-              <div key={i} className="p-8 bg-white rounded-3xl border border-slate-100 shadow-sm">
-                <h4 className="text-4xl font-black text-blue-600">{stat.val}</h4>
-                <p className="text-slate-500 text-xs font-bold uppercase mt-2 tracking-widest">{stat.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Counter />
     </main>
   )
 }

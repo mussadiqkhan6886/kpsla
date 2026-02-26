@@ -42,7 +42,7 @@ const UpComingEvent = () => {
           </div>
 
           {/* Content Side */}
-          <div className="w-full lg:w-3/5 p-8 md:p-12 flex flex-col justify-center">
+          <div className="w-full lg:w-3/5 p-6 md:p-12 flex flex-col justify-center">
             <div className="flex flex-wrap gap-4 mb-6">
               <span className="flex items-center gap-2 text-sm font-medium text-slate-500 bg-slate-100 px-3 py-1 rounded-full">
                 <LuCalendar className="text-blue-600" /> 09:00 AM - 05:00 PM

@@ -50,7 +50,7 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <h4 className="font-bold text-slate-900">Email Us</h4>
-                    <p className="text-slate-500">admissions@edupath.com</p>
+                    <p className="text-slate-500">admissions@KPSLA.com</p>
                   </div>
                 </div>
 
@@ -114,7 +114,7 @@ const ContactPage = () => {
                     ></textarea>
                   </div>
                   <div className="md:col-span-2 pt-4">
-                    <button className="w-full md:w-auto px-12 py-5 bg-blue-600 text-white font-bold rounded-2xl hover:bg-blue-700 transition-all shadow-xl shadow-blue-100 flex items-center justify-center gap-3">
+                    <button className="w-full md:w-auto px-8 md:px-12 py-5 bg-blue-600 text-white font-bold rounded-2xl hover:bg-blue-700 transition-all shadow-xl shadow-blue-100 flex items-center justify-center gap-3">
                       Send Message <LuSend size={20} />
                     </button>
                   </div>
@@ -134,7 +134,7 @@ const ContactPage = () => {
   <div className="absolute inset-0 bg-slate-900/10 pointer-events-none group-hover:bg-transparent transition-all duration-700 z-10" />
   
   <iframe
-    title="EduPath Mardan Office"
+    title="KPSLA Mardan Office"
     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d105655.94639943566!2d71.95679545468725!3d34.1982054625298!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dec005a306488d%3A0x6e2697a21696b054!2sMardan%2C%20Khyber%20Pakhtunkhwa%2C%20Pakistan!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s"
     width="100%"
     height="100%"

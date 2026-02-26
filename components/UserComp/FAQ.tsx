@@ -62,7 +62,7 @@ const FAQ = () => {
                   onClick={() => toggleFAQ(index)}
                   className="w-full flex items-center justify-between p-6 md:p-8 text-left outline-none"
                 >
-                  <span className={`text-lg font-bold ${openIndex === index ? 'text-blue-600' : 'text-slate-900'}`}>
+                  <span className={`text-sm md:text-lg font-bold ${openIndex === index ? 'text-blue-600' : 'text-slate-900'}`}>
                     {faq.question}
                   </span>
                   <LuChevronDown 
