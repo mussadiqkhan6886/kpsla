@@ -14,8 +14,7 @@ const AdminHeader = () => {
   const pathname = usePathname();
   
   const adminLinks = [
-    { name: "Past Event", link: "/admin-dashboard/add-past-event", icon: <LuCirclePlus size={20} /> },
-    { name: "Coming Event", link: "/admin-dashboard/add-coming-event", icon: <LuCirclePlus size={20} /> },
+    { name: "Add Event", link: "/admin-dashboard/add-event", icon: <LuCirclePlus size={20} /> },
     { name: "Events", link: "/admin-dashboard/events", icon: <LuLayoutDashboard size={20} /> },
     { name: "Registered Students", link: "/admin-dashboard/registered", icon: <LuUsers size={20} /> },
     { name: "Team Member", link: "/admin-dashboard/team-member", icon: <LuUsers size={20} /> },

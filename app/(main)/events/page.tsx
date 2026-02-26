@@ -32,7 +32,7 @@ const EventsPage = async () => {
 
   await connectDB()
 
-  const res = await EventSchema.find({isPast: true}).sort({date: 1}).lean()
+  const res = await EventSchema.find({isPast: true}).sort({date: -1}).lean()
 
   return (
     <main className="pt-20 bg-white">

@@ -20,6 +20,7 @@ export async function POST(req: NextRequest) {
     const date = formData.get("date");
     const location = formData.get("location");
     const category = formData.get("category");
+    const isPast = formData.get("isPast") === "true";
 
     let imageUrl = "";
     if (file && file.size > 0) {
@@ -41,7 +42,7 @@ export async function POST(req: NextRequest) {
       location,
       category,
       image: imageUrl,
-      isPast: true,
+      isPast,
     });
 
     return NextResponse.json(newEvent, { status: 201 });
