@@ -18,6 +18,7 @@ const AdminHeader = () => {
     { name: "Coming Event", link: "/admin-dashboard/add-coming-event", icon: <LuCirclePlus size={20} /> },
     { name: "Events", link: "/admin-dashboard/events", icon: <LuLayoutDashboard size={20} /> },
     { name: "Registered Students", link: "/admin-dashboard/registered", icon: <LuUsers size={20} /> },
+    { name: "Team Member", link: "/admin-dashboard/team-member", icon: <LuUsers size={20} /> },
   ];
 
   const toggleMenu = () => setIsOpen(!isOpen);

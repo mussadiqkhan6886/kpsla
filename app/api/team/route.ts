@@ -1,18 +1,17 @@
 import { NextRequest, NextResponse } from "next/server";
-import { TeamSchema as Team } from "@/models/Team"; // Adjust path
-import dbConnect from "@/lib/dbConnect";
-import { v2 as cloudinary } from "cloudinary";
+import { connectDB } from "@/lib/config/database";
+import { TeamSchema } from "@/lib/models/TeamMemberSchema";
+import cloudinary from "@/lib/config/cloudinary";
 
-// GET & POST
 export async function GET() {
-  await dbConnect();
-  const members = await Team.find().sort({ order: 1 });
+  await connectDB();
+  const members = await TeamSchema.find().sort({ order: 1 });
   return NextResponse.json(members);
 }
 
 export async function POST(req: NextRequest) {
   try {
-    await dbConnect();
+    await connectDB();
     const formData = await req.formData();
     const file = formData.get("image") as File;
     const name = formData.get("name");
@@ -33,24 +32,23 @@ export async function POST(req: NextRequest) {
       imageUrl = uploadResult.secure_url;
     }
 
-    const newMember = await Team.create({ name, role, bio, order, image: imageUrl });
+    const newMember = await TeamSchema.create({ name, role, bio, order, image: imageUrl });
     return NextResponse.json(newMember, { status: 201 });
   } catch (error) {
     return NextResponse.json({ error: "Upload failed" }, { status: 500 });
   }
 }
 
-// PATCH & DELETE
 export async function PATCH(req: NextRequest) {
-  await dbConnect();
+  await connectDB();
   const { id, ...updates } = await req.json();
-  const updated = await Team.findByIdAndUpdate(id, updates, { new: true });
+  const updated = await TeamSchema.findByIdAndUpdate(id, updates, { new: true });
   return NextResponse.json(updated);
 }
 
 export async function DELETE(req: NextRequest) {
-  await dbConnect();
+  await connectDB();
   const { id } = await req.json();
-  await Team.findByIdAndDelete(id);
+  await TeamSchema.findByIdAndDelete(id);
   return NextResponse.json({ message: "Deleted" });
 }
