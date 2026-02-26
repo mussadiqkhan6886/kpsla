@@ -7,16 +7,16 @@ import Mission from '@/sections/Mission'
 import Counter from '@/sections/Counter'
 import Power from '@/sections/Power'
 import Partners from '@/components/UserComp/Partners'
+import { connectDB } from '@/lib/config/database'
+import { TeamSchema } from '@/lib/models/TeamMemberSchema'
 
 
-const teamMembers = [
-  { name: 'Dr. Julian Ross', role: 'Head of Research', img: '/team1.jpg' },
-  { name: 'Sarah Vance', role: 'Executive Coach', img: '/team2.jpg' },
-  { name: 'Michael Obasi', role: 'Strategy Director', img: '/team3.jpg' },
-  { name: 'Lin Zhao', role: 'Operations Lead', img: '/team4.jpg' },
-]
+const AboutUs = async () => {
 
-const AboutUs = () => {
+  await connectDB()
+
+  const res = await TeamSchema.find({}).sort({order: 1}).lean()
+
   return (
     <main className="bg-white pt-20">
       
@@ -191,18 +191,16 @@ const AboutUs = () => {
           </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
-            {teamMembers.map((member, i) => (
+            {res.map((member, i) => (
               <div key={i} className="group">
-                <div className="relative w-full aspect-[4/5] mb-6 rounded-3xl overflow-hidden shadow-sm">
-                  <Image src={member.img} alt={member.name} fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
-                  <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center gap-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                    <Link href="#" className="text-white hover:text-blue-400 transition-colors"><FaLinkedin size={28} /></Link>
-                    <Link href="#" className="text-white hover:text-blue-400 transition-colors"><FaTwitter size={28} /></Link>
-                  </div>
+                <div className="relative w-full aspect-[4/5] mb-6 rounded-3xl overflow-hidden">
+                  <Image src={member.image} alt={member.name} fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
+                 
                 </div>
                 <div className="text-center md:text-left">
                   <h4 className="text-xl font-bold text-slate-900">{member.name}</h4>
                   <p className="text-blue-600 font-bold text-xs uppercase tracking-widest mt-1">{member.role}</p>
+                  <p className="text-zinc-700 text-xs mt-4">{member.bio}</p>
                 </div>
               </div>
             ))}
