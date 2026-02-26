@@ -56,7 +56,7 @@ const EventsPage = () => {
             <div className="h-px flex-1 bg-slate-100"></div>
           </div>
 
-          <div className="grid grid-cols-1 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-12">
             {upcomingEvents.map((event) => (
               <div key={event.id} className="group flex flex-col lg:flex-row bg-slate-50 rounded-[2.5rem] overflow-hidden hover:shadow-2xl transition-all duration-500 border border-slate-100">
                 <div className="relative lg:w-2/5 h-72 lg:h-auto overflow-hidden">

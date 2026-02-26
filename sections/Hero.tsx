@@ -5,7 +5,7 @@ import React from 'react'
 
 const Hero = () => {
   return (
-    <section className="relative min-h-[90vh] lg:h-screen flex items-center pt-30 sm:pt-20 md:pt-10 overflow-hidden bg-slate-50">
+    <section className="relative min-h-[90vh] lg:h-screen flex items-center pt-30 sm:pt-20 md:pt-23 lg:pt-10 overflow-hidden bg-slate-50">
     
       <div className="container mx-auto px-6 flex flex-col lg:flex-row items-center gap-12">
         
