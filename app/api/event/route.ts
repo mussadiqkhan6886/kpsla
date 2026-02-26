@@ -5,7 +5,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET() {
   await connectDB();
-  const events = await EventSchema.find({ isPast: true }).sort({ date: -1 });
+  const events = await EventSchema.find({}).sort({ date: -1 });
   return NextResponse.json(events);
 }
 
@@ -59,5 +59,20 @@ export async function DELETE(req: NextRequest) {
     return NextResponse.json({ message: "Event deleted successfully" });
   } catch (error) {
     return NextResponse.json({ error: "Delete failed" }, { status: 500 });
+  }
+}
+
+export async function PATCH(req: NextRequest) {
+  try {
+    await connectDB();
+    const { id, isPast } = await req.json();
+    const updatedEvent = await EventSchema.findByIdAndUpdate(
+      id, 
+      { isPast: isPast }, 
+      { new: true }
+    );
+    return NextResponse.json(updatedEvent);
+  } catch (error) {
+    return NextResponse.json({ error: "Update failed" }, { status: 500 });
   }
 }
