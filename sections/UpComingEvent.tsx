@@ -1,9 +1,16 @@
+import { connectDB } from '@/lib/config/database'
+import { EventSchema } from '@/lib/models/EventSchema'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { LuCalendar, LuMapPin, LuArrowRight } from 'react-icons/lu'
 
-const UpComingEvent = () => {
+const UpComingEvent = async () => {
+
+  await connectDB()
+
+  const res = await EventSchema.find({isPast: false}).sort({date: -1}).lean()
+  
   return (
     <section className="py-24 bg-white">
       <div className="container mx-auto px-6">
@@ -24,20 +31,21 @@ const UpComingEvent = () => {
         </div>
 
         {/* Event Card */}
-        <div className="group relative flex flex-col lg:flex-row bg-white border border-slate-100 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500">
+        {res.map(item => (
+          <div className="group relative flex flex-col lg:flex-row bg-white border border-slate-100 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500">
           
           {/* Image Side */}
           <div className="relative w-full lg:w-2/5 h-64 lg:h-auto overflow-hidden">
             <Image 
-              src="/hero.jpg" 
-              alt="Leadership Summit 2024"
+              src={item.image} 
+              alt={item.name}
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-700"
             />
             {/* Date Badge Overlay */}
             <div className="absolute top-6 left-6 bg-white rounded-2xl p-3 shadow-lg text-center min-w-[70px]">
-              <span className="block text-2xl font-black text-blue-600 leading-none">24</span>
-              <span className="block text-xs font-bold uppercase text-slate-500 tracking-tighter">Oct</span>
+              <span className="block text-2xl font-black text-blue-600 leading-none">{new Date(item.date).getDate()}</span>
+              <span className="block text-xs font-bold uppercase text-slate-500 tracking-tighter">{new Date(item.date).toLocaleString('en-US', { month: 'short' })}</span>
             </div>
           </div>
 
@@ -47,23 +55,26 @@ const UpComingEvent = () => {
               <span className="flex items-center gap-2 text-sm font-medium text-slate-500 bg-slate-100 px-3 py-1 rounded-full">
                 <LuCalendar className="text-blue-600" /> 09:00 AM - 05:00 PM
               </span>
-              <span className="flex items-center gap-2 text-sm font-medium text-slate-500 bg-slate-100 px-3 py-1 rounded-full">
-                <LuMapPin className="text-blue-600" /> Virtual Conference
+              <span className="flex items-center capitalize gap-2 text-sm font-medium text-slate-500 bg-slate-100 px-3 py-1 rounded-full">
+                <LuMapPin className="text-blue-600" /> {item.location}
+              </span>
+              <span className="flex items-center capitalize gap-2 text-sm font-medium border border-blue-300 text-slate-500 bg-blue-100 px-3 py-1 rounded-full">
+                 {item.category}
               </span>
             </div>
 
-            <h5 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4 group-hover:text-blue-600 transition-colors">
-              Next-Gen Leadership Global Summit
+            <h5 className="text-2xl capitalize md:text-3xl font-bold text-slate-900 mb-4 group-hover:text-blue-600 transition-colors">
+              {item.title}
             </h5>
             
             <p className="text-slate-600 text-lg leading-relaxed mb-8 max-w-2xl">
-              Join industry pioneers for an intensive one-day session on adaptive leadership 
-              and organizational resilience. Perfect for emerging managers and career-driven professionals.
+              {item.description}
             </p>
 
             
           </div>
         </div>
+        ))}
 
       </div>
     </section>
