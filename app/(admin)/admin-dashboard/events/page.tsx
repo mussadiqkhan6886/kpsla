@@ -1,7 +1,7 @@
 "use client"
 import React, { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { LuHistory, LuRocket, LuCheckCheck , LuMapPin, LuTrash2 } from 'react-icons/lu'
+import { LuHistory, LuRocket, LuCheckCheck, LuMapPin, LuTrash2 } from 'react-icons/lu'
 import Image from 'next/image'
 import { IEvent } from '@/type'
 
@@ -27,9 +27,18 @@ const EventsDisplayPage = () => {
     if (res.ok) fetchEvents(); // Refresh list
   };
 
+  const handleDeleteEvent = async (id: string) => {
+    if (!confirm("Are you sure you want to delete this event?")) return;
+    const res = await fetch('/api/event', {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id })
+    });
+    if (res.ok) fetchEvents(); // Refresh list
+  };
+
   // Split events into two groups
   const upcomingEvents = events.filter(e => !e.isPast);
-  console.log(events)
   const pastEvents = events.filter(e => e.isPast);
 
   if (loading) return <div className="p-10 text-center font-bold text-slate-500">Loading Events...</div>
@@ -55,6 +64,7 @@ const EventsDisplayPage = () => {
                 event={event} 
                 isUpcoming={true} 
                 onStatusChange={() => handleMarkAsPast(event._id!)} 
+                onDelete={() => handleDeleteEvent(event._id!)}
               />
             ))}
           </AnimatePresence>
@@ -73,7 +83,12 @@ const EventsDisplayPage = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 opacity-80">
           {pastEvents.map((event) => (
-            <EventCard key={event._id} event={event} isUpcoming={false} />
+            <EventCard 
+              key={event._id} 
+              event={event} 
+              isUpcoming={false} 
+              onDelete={() => handleDeleteEvent(event._id!)}
+            />
           ))}
         </div>
       </section>
@@ -82,7 +97,7 @@ const EventsDisplayPage = () => {
 }
 
 // Sub-component for individual cards to keep code clean
-const EventCard = ({ event, isUpcoming, onStatusChange }: { event: any, isUpcoming: boolean, onStatusChange?: () => void }) => {
+const EventCard = ({ event, isUpcoming, onStatusChange, onDelete }: { event: any, isUpcoming: boolean, onStatusChange?: () => void, onDelete: () => void }) => {
   return (
     <motion.div 
       layout
@@ -96,17 +111,30 @@ const EventCard = ({ event, isUpcoming, onStatusChange }: { event: any, isUpcomi
         <span className="text-[10px] font-bold uppercase">{new Date(event.date).toLocaleString('en-US', { month: 'short' })}</span>
       </div>
 
-      {/* Action Button (Only for Upcoming) */}
-      {isUpcoming && (
+      {/* Action Buttons Container */}
+      <div className="absolute top-8 right-8 z-10 flex flex-col gap-2 items-end">
+        {/* Delete Button */}
         <button 
-          onClick={onStatusChange}
-          className="absolute top-8 right-8 z-10 bg-white/90 hover:bg-green-500 hover:text-white text-green-600 p-3 rounded-2xl shadow-lg transition-all flex items-center gap-2 font-bold text-xs"
-          title="Move to Past"
+          onClick={onDelete}
+          className="bg-white/90 hover:bg-red-500 hover:text-white text-red-600 p-3 rounded-2xl shadow-lg transition-all flex items-center gap-2 font-bold text-xs"
+          title="Delete Event"
         >
-          <LuCheckCheck size={18} />
-          <span className="hidden group-hover:block">Finish Event</span>
+          <LuTrash2 size={18} />
+          <span className="hidden group-hover:block">Delete</span>
         </button>
-      )}
+
+        {/* Mark as Past Button (Only for Upcoming) */}
+        {isUpcoming && (
+          <button 
+            onClick={onStatusChange}
+            className="bg-white/90 hover:bg-green-500 hover:text-white text-green-600 p-3 rounded-2xl shadow-lg transition-all flex items-center gap-2 font-bold text-xs"
+            title="Move to Past"
+          >
+            <LuCheckCheck size={18} />
+            <span className="hidden group-hover:block">Finish Event</span>
+          </button>
+        )}
+      </div>
 
       <div className="aspect-[4/3] rounded-[1.5rem] overflow-hidden mb-6 relative bg-slate-100">
         <Image src={event.image || '/placeholder.jpg'} fill className="object-cover" alt={event.title} />
