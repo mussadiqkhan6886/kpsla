@@ -11,13 +11,13 @@ import Image from 'next/image';
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-gray-100 bg-white/80 backdrop-blur-md">
+    <header className="fixed top-0 left-0 pt-1 right-0 z-50 border-b border-gray-100 bg-white/80 backdrop-blur-md">
       <div className=" flex h-20 items-center justify-between px-4 md:px-6">
         
         {/* Logo Section */}
         <div className="flex items-center">
-          <Link href="/" className="text-2xl font-bold tracking-tight text-blue-600">
-            <Image src={"/logo.jpeg"} alt='logo image header' width={30} height={30} priority className='w-20 h-20 object-cover' />
+          <Link href="/">
+            <Image src={"/headerLogo.png"} alt='logo image header' width={80} height={80} priority className='w-full h-full object-cover' />
           </Link>
         </div>
 

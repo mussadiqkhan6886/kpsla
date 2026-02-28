@@ -53,7 +53,7 @@ const Power = () => {
               
               <div className="relative h-full w-full overflow-hidden rounded-2xl grayscale hover:grayscale-0 transition-all duration-700">
                 <Image 
-                  src="/hero.jpg" 
+                  src="/leadership.jpg" 
                   alt="Unleash Leadership" 
                   fill 
                   className="object-cover scale-110 group-hover:scale-100 transition-transform duration-700"

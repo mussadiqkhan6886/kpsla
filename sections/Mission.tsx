@@ -10,7 +10,7 @@ const Mission = () => {
           <div className="relative w-full lg:w-5/12 min-h-[400px] lg:min-h-[500px]">
             <div className="absolute inset-0 z-10 rounded-3xl border-[12px] border-slate-100/50" />
             <Image 
-              src="/hero.jpg" 
+              src="/mission.jpg" 
               alt="Our Mission in Education" 
               fill 
               className="object-cover rounded-[22px]"
