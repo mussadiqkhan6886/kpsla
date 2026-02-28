@@ -29,7 +29,10 @@ const UpComingEvent = async () => {
           </button>
         </div>
 
-        {res.map(item => (
+        {res.length == 0 ? <div>
+          <p className="text-zinc-500 text-center text-lg mt-3">No Upcoming Events yet.</p>
+        </div> :  (
+          res.map(item => (
           <div className="group relative flex flex-col lg:flex-row bg-white border border-slate-100 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500">
           
           {/* Image Side */}
@@ -72,7 +75,8 @@ const UpComingEvent = async () => {
             
           </div>
         </div>
-        ))}
+        ))
+        )}
 
       </div>
     </section>
