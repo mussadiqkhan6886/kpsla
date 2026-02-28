@@ -3,6 +3,7 @@ import Counter from '@/sections/Counter'
 import CTA from '@/sections/CTA'
 import Hero from '@/sections/Hero'
 import Mission from '@/sections/Mission'
+import News from '@/sections/News'
 import Power from '@/sections/Power'
 import SuccessStories from '@/sections/SuccessStories'
 import UpComingEvent from '@/sections/UpComingEvent'
@@ -19,6 +20,7 @@ const Home = () => {
       <WhatWeDo />
       <UpComingEvent />
       <SuccessStories />
+      <News />
       <FAQ />
       <CTA />
     </main>
