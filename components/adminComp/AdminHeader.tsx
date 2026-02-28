@@ -21,7 +21,7 @@ const AdminHeader = () => {
     { name: "Registered Students", link: "/admin-dashboard/registered", icon: <LuUsers size={20} /> },
     { name: "Team Member", link: "/admin-dashboard/team-member", icon: <LuUsers size={20} /> },
     { name: "News", link: "/admin-dashboard/add-news", icon: <LuNewspaper size={20} /> },
-    { name: "Reviews", link: "/admin-dashboard/add-review", icon: <LuStar size={20} /> },
+    { name: "Reviews", link: "/admin-dashboard/reviews", icon: <LuStar size={20} /> },
   ];
 
   const toggleMenu = () => setIsOpen(!isOpen);

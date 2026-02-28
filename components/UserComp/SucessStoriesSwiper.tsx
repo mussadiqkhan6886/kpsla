@@ -9,7 +9,7 @@ import { FaQuoteLeft } from 'react-icons/fa'
 import 'swiper/css'
 import 'swiper/css/pagination'
 
-interface StoriesType {
+export interface StoriesType {
   _id: string
   name: string
   text: string
