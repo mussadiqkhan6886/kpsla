@@ -1,9 +1,39 @@
+"use client"
 import FAQ from '@/components/UserComp/FAQ'
 import Link from 'next/link'
-import React from 'react'
-import { LuPhone, LuMail, LuMapPin, LuClock, LuSend } from 'react-icons/lu'
+import React, { useState } from 'react'
+import { LuPhone, LuMail, LuMapPin, LuClock, LuSend, LuLoader } from 'react-icons/lu'
+import axios from 'axios'
 
 const ContactPage = () => {
+  const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    subject: 'Program Inquiry',
+    message: ''
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      const res = await axios.post('/api/contact-us', formData);
+      if (res.status === 200) {
+        alert("Thank you! Your message has been sent.");
+        setFormData({ fullName: '', email: '', subject: 'Program Inquiry', message: '' });
+      }
+    } catch (err) {
+      alert("Something went wrong. Please try again later.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <main className="bg-white pt-20">
       {/* 1. Header Section */}
@@ -79,11 +109,15 @@ const ContactPage = () => {
             {/* Right Side: Contact Form */}
             <div className="w-full lg:w-2/3">
               <div className="bg-slate-50 p-8 md:p-12 rounded-[2.5rem] border border-slate-100">
-                <form className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label className="text-sm font-bold text-slate-700 ml-1">Full Name</label>
                     <input 
+                      required
+                      name="fullName"
                       type="text" 
+                      value={formData.fullName}
+                      onChange={handleChange}
                       placeholder="John Doe"
                       className="w-full px-6 py-4 rounded-2xl border border-slate-200 focus:outline-none focus:border-blue-600 transition-colors"
                     />
@@ -91,31 +125,52 @@ const ContactPage = () => {
                   <div className="space-y-2">
                     <label className="text-sm font-bold text-slate-700 ml-1">Email Address</label>
                     <input 
+                      required
+                      name="email"
                       type="email" 
+                      value={formData.email}
+                      onChange={handleChange}
                       placeholder="john@example.com"
                       className="w-full px-6 py-4 rounded-2xl border border-slate-200 focus:outline-none focus:border-blue-600 transition-colors"
                     />
                   </div>
                   <div className="md:col-span-2 space-y-2">
                     <label className="text-sm font-bold text-slate-700 ml-1">Subject</label>
-                    <select className="w-full px-6 py-4 rounded-2xl border border-slate-200 focus:outline-none focus:border-blue-600 transition-colors appearance-none bg-white">
-                      <option>Program Inquiry</option>
-                      <option>Partnership Opportunity</option>
-                      <option>Event Question</option>
-                      <option>Other</option>
+                    <select 
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleChange}
+                      className="w-full px-6 py-4 rounded-2xl border border-slate-200 focus:outline-none focus:border-blue-600 transition-colors appearance-none bg-white"
+                    >
+                      <option value="Program Inquiry">Program Inquiry</option>
+                      <option value="Partnership Opportunity">Partnership Opportunity</option>
+                      <option value="Event Question">Event Question</option>
+                      <option value="Other">Other</option>
                     </select>
                   </div>
                   <div className="md:col-span-2 space-y-2">
                     <label className="text-sm font-bold text-slate-700 ml-1">Your Message</label>
                     <textarea 
+                      required
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
                       rows={5}
                       placeholder="How can we help you?"
                       className="w-full px-6 py-4 rounded-2xl border border-slate-200 focus:outline-none focus:border-blue-600 transition-colors resize-none"
                     ></textarea>
                   </div>
                   <div className="md:col-span-2 pt-4">
-                    <button className="w-full md:w-auto px-8 md:px-12 py-5 bg-blue-600 text-white font-bold rounded-2xl hover:bg-blue-700 transition-all shadow-xl shadow-blue-100 flex items-center justify-center gap-3">
-                      Send Message <LuSend size={20} />
+                    <button 
+                      disabled={loading}
+                      type="submit"
+                      className="w-full md:w-auto px-8 md:px-12 py-5 bg-blue-600 text-white font-bold rounded-2xl hover:bg-blue-700 transition-all shadow-xl shadow-blue-100 flex items-center justify-center gap-3 disabled:opacity-50"
+                    >
+                      {loading ? (
+                        <>Sending... <LuLoader className="animate-spin" size={20} /></>
+                      ) : (
+                        <>Send Message <LuSend size={20} /></>
+                      )}
                     </button>
                   </div>
                 </form>
@@ -128,49 +183,47 @@ const ContactPage = () => {
 
       <FAQ />
 
-      {/* 3. Map Section - Live Google Maps Embed for Mardan */}
-<section className="h-[500px] w-full relative group">
-  {/* Overlay for a premium look before interaction */}
-  <div className="absolute inset-0 bg-slate-900/10 pointer-events-none group-hover:bg-transparent transition-all duration-700 z-10" />
-  
-  <iframe
-    title="KPSLA Mardan Office"
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d105655.94639943566!2d71.95679545468725!3d34.1982054625298!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dec005a306488d%3A0x6e2697a21696b054!2sMardan%2C%20Khyber%20Pakhtunkhwa%2C%20Pakistan!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s"
-    width="100%"
-    height="100%"
-    style={{ border: 0 }}
-    allowFullScreen={true}
-    loading="lazy"
-    referrerPolicy="no-referrer-when-downgrade"
-    className="lg:grayscale lg:hover:grayscale-0 transition-all duration-1000"
-  ></iframe>
+      {/* 3. Map Section */}
+      <section className="h-[500px] w-full relative group">
+        <div className="absolute inset-0 bg-slate-900/10 pointer-events-none group-hover:bg-transparent transition-all duration-700 z-10" />
+        
+        <iframe
+          title="KPSLA Mardan Office"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d105658.077648356!2d71.9546059635035!3d34.19708767746816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38de9305f7783d73%3A0x6b49e295ba13f360!2sMardan%2C%20Khyber%20Pakhtunkhwa%2C%20Pakistan!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s"
+          width="100%"
+          height="100%"
+          style={{ border: 0 }}
+          allowFullScreen={true}
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          className="lg:grayscale lg:hover:grayscale-0 transition-all duration-1000"
+        ></iframe>
 
-  {/* Floating Location Card */}
-  <div className="absolute bottom-10 left-10 z-20 hidden md:block">
-    <div className="bg-white p-6 rounded-[2rem] shadow-2xl border border-slate-100 max-w-xs animate-in fade-in slide-in-from-left-4">
-      <div className="flex items-center gap-3 mb-3">
-        <div className="p-2 bg-blue-600 rounded-lg text-white">
-          <LuMapPin size={20} />
+        <div className="absolute bottom-10 left-10 z-20 hidden md:block">
+          <div className="bg-white p-6 rounded-[2rem] shadow-2xl border border-slate-100 max-w-xs animate-in fade-in slide-in-from-left-4">
+            <div className="flex items-center gap-3 mb-3">
+              <div className="p-2 bg-blue-600 rounded-lg text-white">
+                <LuMapPin size={20} />
+              </div>
+              <h4 className="font-black text-slate-900 uppercase text-xs tracking-widest">Office</h4>
+            </div>
+            <p className="text-slate-600 text-sm font-medium leading-relaxed">
+              Mardan City, <br />
+              Khyber Pakhtunkhwa, <br />
+              Pakistan.
+            </p>
+            <Link 
+              href="https://maps.app.goo.gl/YourActualGoogleMapsLink" 
+              target="_blank" 
+              className="mt-4 inline-block text-blue-600 text-xs font-bold uppercase tracking-wider hover:text-blue-800"
+            >
+              Get Directions →
+            </Link>
+          </div>
         </div>
-        <h4 className="font-black text-slate-900 uppercase text-xs tracking-widest">Office</h4>
-      </div>
-      <p className="text-slate-600 text-sm font-medium leading-relaxed">
-        Mardan City, <br />
-        Khyber Pakhtunkhwa, <br />
-        Pakistan.
-      </p>
-      <Link 
-        href="https://maps.google.com" 
-        target="_blank" 
-        className="mt-4 inline-block text-blue-600 text-xs font-bold uppercase tracking-wider hover:text-blue-800"
-      >
-        Get Directions →
-      </Link>
-    </div>
-  </div>
-</section>
+      </section>
     </main>
   )
 }
 
-export default ContactPage
+export default ContactPage;
