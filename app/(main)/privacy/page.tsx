@@ -93,7 +93,7 @@ const PrivacyPolicy = () => {
                 <h4 className="font-bold text-blue-900 mb-2">Contact Our Privacy Officer</h4>
                 <p className="text-blue-800 text-sm">
                   If you have questions regarding your data, please contact us at: 
-                  <span className="font-bold ml-1">privacy@KPSLA.com</span>
+                  <span className="font-bold ml-1">kpsla.kp@gmail.com</span>
                 </p>
               </div>
             </div>

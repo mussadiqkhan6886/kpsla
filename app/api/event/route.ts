@@ -18,6 +18,7 @@ export async function POST(req: NextRequest) {
     const title = formData.get("title");
     const description = formData.get("description");
     const date = formData.get("date");
+    const time = formData.get("time");
     const location = formData.get("location");
     const category = formData.get("category");
     const isPast = formData.get("isPast") === "true";
@@ -39,6 +40,7 @@ export async function POST(req: NextRequest) {
       title,
       description,
       date,
+      time,
       location,
       category,
       image: imageUrl,

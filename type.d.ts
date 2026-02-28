@@ -3,6 +3,7 @@ export interface IEvent {
   title: string;
   description: string;
   date: string;
+  time: string;
   location: string;
   image?: string;
   category: 'Conference' | 'Workshop' | 'Competition' | 'Seminar';

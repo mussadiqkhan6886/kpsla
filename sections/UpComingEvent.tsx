@@ -33,13 +33,13 @@ const UpComingEvent = async () => {
           <p className="text-zinc-500 text-center text-lg mt-3">No Upcoming Events yet.</p>
         </div> :  (
           res.map(item => (
-          <div className="group relative flex flex-col lg:flex-row bg-white border border-slate-100 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500">
+          <div key={item._id} className="group relative flex flex-col lg:flex-row bg-white border border-slate-100 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500">
           
           {/* Image Side */}
           <div className="relative w-full lg:w-2/5 h-64 lg:h-auto overflow-hidden">
             <Image 
               src={item.image} 
-              alt={item.name}
+              alt={item.title}
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-700"
             />
@@ -54,13 +54,13 @@ const UpComingEvent = async () => {
           <div className="w-full lg:w-3/5 p-6 md:p-12 flex flex-col justify-center">
             <div className="flex flex-wrap gap-4 mb-6">
               <span className="flex items-center gap-2 text-sm font-medium text-slate-500 bg-slate-100 px-3 py-1 rounded-full">
-                <LuCalendar className="text-blue-600" /> 09:00 AM - 05:00 PM
+                <LuCalendar className="text-blue-600" /> {item.time}
               </span>
               <span className="flex items-center capitalize gap-2 text-sm font-medium text-slate-500 bg-slate-100 px-3 py-1 rounded-full">
                 <LuMapPin className="text-blue-600" /> {item.location}
               </span>
-              <span className="flex items-center capitalize gap-2 text-sm font-medium border border-blue-300 text-slate-500 bg-blue-100 px-3 py-1 rounded-full">
-                 {item.category}
+              <span className="flex items-center capitalize gap-2 text-sm font-medium text-slate-500 bg-slate-100 px-3 py-1 rounded-full">
+                {item.category}
               </span>
             </div>
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram, FaPaperPlane } from 'react-icons/fa'
+import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram, FaPaperPlane, FaFacebook, FaTiktok } from 'react-icons/fa'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -21,12 +21,12 @@ const Footer = () => {
             </p>
             <div className="flex gap-4">
               <Link href="#" className="h-10 w-10 rounded-full bg-slate-900 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all">
-                <FaLinkedinIn size={18} />
+                <FaTiktok size={18} />
               </Link>
-              <Link href="#" className="h-10 w-10 rounded-full bg-slate-900 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all">
-                <FaTwitter size={18} />
+              <Link href="https://www.facebook.com/p/Kp-Students-Leadership-Association-61567282782387/" className="h-10 w-10 rounded-full bg-slate-900 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all">
+                <FaFacebook size={18} />
               </Link>
-              <Link href="#" className="h-10 w-10 rounded-full bg-slate-900 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all">
+              <Link href="https://www.instagram.com/kp_stdsleadershipassociation/?__d=1%2B" className="h-10 w-10 rounded-full bg-slate-900 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all">
                 <FaInstagram size={18} />
               </Link>
             </div>

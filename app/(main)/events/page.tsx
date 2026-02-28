@@ -50,7 +50,7 @@ const EventsPage = async () => {
                 </div>
                 <div className="lg:w-3/5 p-6 lg:p-16 flex flex-col justify-center">
                   <div className="flex flex-wrap gap-4 mb-6 text-sm font-bold text-blue-600 uppercase tracking-widest">
-                    <span className="flex items-center gap-2"><LuCalendar /> will put time</span>
+                    <span className="flex items-center gap-2"><LuCalendar /> {event.time}</span>
                     <span className="flex items-center gap-2"><LuMapPin /> {event.location}</span>
                   </div>
                   <h3 className="text-3xl font-black text-slate-900 mb-6">{event.title}</h3>
@@ -60,6 +60,7 @@ const EventsPage = async () => {
               </div>
             ))}
           </div>
+          {upcoming.length === 0 && <p className="text-zinc-500 text-lg text-center">No Upcoming events yet.</p>}
         </div>
       </section>
 

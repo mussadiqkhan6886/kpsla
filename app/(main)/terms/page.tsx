@@ -128,7 +128,7 @@ const TermsOfService = () => {
           <div className="mt-20 pt-12 border-t border-slate-100 text-center">
             <p className="text-slate-500 text-sm">
               If you have any questions about these Terms, please contact our legal team at 
-              <span className="text-blue-600 font-bold ml-1">legal@K.com</span>
+              <span className="text-blue-600 font-bold ml-1">kpsla.kp@gmail.com</span>
             </p>
           </div>
         </div>

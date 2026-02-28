@@ -45,7 +45,7 @@ const CTA = () => {
 
               
               <button className="w-full sm:w-auto px-6 lg:px-10 py-5 bg-transparent border-2 border-white/30 text-white font-bold text-lg rounded-2xl hover:bg-white/10 transition-all">
-                Contact Admissions
+                <Link target='_blank' href="https://wa.me/923409789559">Contact Admissions</Link>
               </button>
             </div>
             

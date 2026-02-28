@@ -40,7 +40,7 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <h4 className="font-bold text-slate-900">Call Us</h4>
-                    <p className="text-slate-500">+1 (555) 000-0000</p>
+                    <p className="text-slate-500">03409789559</p>
                   </div>
                 </div>
 
@@ -50,7 +50,7 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <h4 className="font-bold text-slate-900">Email Us</h4>
-                    <p className="text-slate-500">admissions@KPSLA.com</p>
+                    <p className="text-slate-500">kpsla.kp@gmail.com</p>
                   </div>
                 </div>
 
@@ -60,7 +60,7 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <h4 className="font-bold text-slate-900">Visit Us</h4>
-                    <p className="text-slate-500">123 Leadership Way, Suite 100<br/>New York, NY 10001</p>
+                    <p className="text-slate-500">Shangla / Mardan, <br /> Khyber Pakhtunkhwa, Pakistan</p>
                   </div>
                 </div>
 
@@ -152,10 +152,10 @@ const ContactPage = () => {
         <div className="p-2 bg-blue-600 rounded-lg text-white">
           <LuMapPin size={20} />
         </div>
-        <h4 className="font-black text-slate-900 uppercase text-xs tracking-widest">Headquarters</h4>
+        <h4 className="font-black text-slate-900 uppercase text-xs tracking-widest">Office</h4>
       </div>
       <p className="text-slate-600 text-sm font-medium leading-relaxed">
-        Main Mardan City, <br />
+        Mardan City, <br />
         Khyber Pakhtunkhwa, <br />
         Pakistan.
       </p>

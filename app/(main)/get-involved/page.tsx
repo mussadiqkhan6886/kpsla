@@ -58,7 +58,7 @@ const GetInvolvedPage = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 animate-in fade-in slide-in-from-bottom-4">
               <div className="space-y-8">
                 <h2 className="text-4xl font-black text-slate-900 uppercase">Student Membership</h2>
-                <p className="text-slate-600 text-lg">Join a network of over 5,000+ ambitious students. Gain the tools you need to lead.</p>
+                <p className="text-slate-600 text-lg">Join a network of over 500+ ambitious students. Gain the tools you need to lead.</p>
                 <div className="space-y-4">
                   {[
                     "Access to exclusive networking events",

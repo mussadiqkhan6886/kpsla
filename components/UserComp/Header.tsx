@@ -49,7 +49,7 @@ const Header = () => {
               className="hidden md:flex h-10 w-10 items-center justify-center rounded-full border border-green-200 bg-green-50 text-green-600 transition-colors hover:bg-green-100"
               aria-label="Contact on WhatsApp"
             >
-              <FaWhatsapp size={20} />
+              <Link target='_blank' href="https://wa.me/923409789559"><FaWhatsapp size={20} /></Link>
             </button>
             <FiMenu size={28} onClick={() => setIsMenuOpen(true)} className='block lg:hidden' />
             {isMenuOpen && <SideBar isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />}

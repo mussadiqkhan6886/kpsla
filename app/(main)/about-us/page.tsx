@@ -186,7 +186,7 @@ const AboutUs = async () => {
               <p className="text-slate-500 text-lg">The world-class minds behind our curriculum.</p>
             </div>
             <button className="px-8 py-3 bg-slate-900 text-white font-bold rounded-xl hover:bg-blue-600 transition-all">
-              Join the Team
+              <Link href="/get-involved">Join the Team</Link>
             </button>
           </div>
           
