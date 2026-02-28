@@ -29,23 +29,22 @@ export default function StudentTable({ students, setStudents }: StudentTableProp
   const [open, setOpen] = React.useState(false);
   const [selectedStudent, setSelectedStudent] = React.useState<IRegistration | null>(null);
 
-  const handleStatusUpdate = async (id: string, newStatus: string) => {
-    try {
-      const res = await axios.patch(`/api/registeration`, { id, status: newStatus });
-      if (res.status === 200) {
-        // Update local state so UI reflects change immediately
-        setStudents((prev: IRegistration[]) => 
-          prev.map(s => s._id === id ? { ...s, status: newStatus } : s)
-        );
-        // If modal is open, update the selected student too
-        if (selectedStudent?._id === id) {
-          setSelectedStudent({ ...selectedStudent, status: newStatus as any });
-        }
+const handleStatusUpdate = async (id: string, newStatus: IRegistration['status']) => {
+  try {
+    const res = await axios.patch(`/api/registeration`, { id, status: newStatus });
+    if (res.status === 200) {
+      setStudents((prev) => 
+        prev.map(s => s._id === id ? { ...s, status: newStatus } : s)
+      );
+      
+      if (selectedStudent?._id === id) {
+        setSelectedStudent({ ...selectedStudent, status: newStatus });
       }
-    } catch (err) {
-      alert("Failed to update status");
     }
-  };
+  } catch (err) {
+    alert("Failed to update status");
+  }
+};
 
   const handleOpen = (student: IRegistration) => {
     setSelectedStudent(student);
@@ -149,7 +148,7 @@ export default function StudentTable({ students, setStudents }: StudentTableProp
         <FormControl fullWidth size="small" sx={{ mt: 1 }}>
           <Select
             value={params.value}
-            onChange={(e) => handleStatusUpdate(params.row._id!, e.target.value)}
+            onChange={(e) => handleStatusUpdate(params.row._id!, e.target.value as IRegistration['status'])}
             sx={{ 
                 height: 32, 
                 fontSize: '12px', 
