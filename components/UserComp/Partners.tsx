@@ -2,12 +2,9 @@ import React from 'react'
 import Image from 'next/image'
 
 const partners = [
-  { name: "Global Tech", logo: "/partner1.png" },
-  { name: "EduCorp", logo: "/partner2.png" },
-  { name: "Leadership Hub", logo: "/partner3.png" },
-  { name: "Future Minds", logo: "/partner4.png" },
-  { name: "Innovate University", logo: "/partner5.png" },
-  { name: "Lead Strategy", logo: "/partner6.png" },
+  { name: "Pakistan premier College Mardan", logo: "/partner1.png" },
+  { name: "Green Hydro Engineering", logo: "/partner2.png" },
+  { name: "District Youth Affairs", logo: "/partner3.png" },
 ]
 
 const Partners = () => {
