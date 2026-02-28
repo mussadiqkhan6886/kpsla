@@ -1,7 +1,16 @@
 import SuccessStoriesSwiper from '@/components/UserComp/SucessStoriesSwiper'
+import { connectDB } from '@/lib/config/database'
+import { ReviewsSchema } from '@/lib/models/ReviewSchema'
 import React from 'react'
 
-const SuccessStories = () => {
+const SuccessStories = async () => {
+
+  await connectDB()
+
+  const res = await ReviewsSchema.find({}).sort({_id: -1}).lean()
+
+  const stories = JSON.parse(JSON.stringify(res))
+
   return (
     <section id='success-stories' className="py-24 bg-slate-50 overflow-hidden">
       <div className="container mx-auto px-6">
@@ -19,7 +28,7 @@ const SuccessStories = () => {
         </div>
 
         <div className="relative">
-          <SuccessStoriesSwiper />
+          <SuccessStoriesSwiper stories={stories} />
         </div>
       </div>
     </section>
