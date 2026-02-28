@@ -15,7 +15,6 @@ const UpComingEvent = async () => {
     <section className="py-24 bg-white">
       <div className="container mx-auto px-6">
         
-        {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
           <div>
             <h4 className="text-blue-600 font-bold uppercase tracking-widest text-sm mb-2">
@@ -30,7 +29,6 @@ const UpComingEvent = async () => {
           </button>
         </div>
 
-        {/* Event Card */}
         {res.map(item => (
           <div className="group relative flex flex-col lg:flex-row bg-white border border-slate-100 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500">
           
