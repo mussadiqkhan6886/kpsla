@@ -67,6 +67,7 @@ const Hero = () => {
                 alt="Leadership training hero image" 
                 className="object-cover "
                 priority // Priority loading for LCP
+                fetchPriority="high"
               />
             </div>
             
