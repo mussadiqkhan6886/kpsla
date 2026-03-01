@@ -1,0 +1,8 @@
+User-agent: *   
+
+Disallow: /api/
+Disallow: /admin-dashboard
+
+Allow: /
+
+sitemap: https://www.kpsla.org/sitemap.xml
