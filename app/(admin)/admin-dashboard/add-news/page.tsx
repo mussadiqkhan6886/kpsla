@@ -51,7 +51,7 @@ const AddNews = () => {
       {/* UPLOAD BOX */}
       <section className="max-w-md mx-auto bg-white p-8 rounded-[2.5rem] border border-slate-200 shadow-xl shadow-slate-200/50">
         <div className="flex items-center gap-2 mb-6 text-slate-900 font-black uppercase italic tracking-tighter">
-            <LuNewspaper className="text-blue-600" /> Add New Poster
+            <LuNewspaper className="text-blue-600" /> Add New News
         </div>
         
         <label className="relative flex flex-col items-center justify-center w-full h-64 border-2 border-dashed border-slate-200 rounded-3xl cursor-pointer hover:bg-blue-50/50 hover:border-blue-400 transition-all overflow-hidden group">
