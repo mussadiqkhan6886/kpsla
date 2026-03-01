@@ -10,6 +10,8 @@ import UpComingEvent from '@/sections/UpComingEvent'
 import WhatWeDo from '@/sections/WhatWeDo'
 import React from 'react'
 
+export const dynamic = 'force-dynamic';
+
 const Home = () => {
   return (
     <main>

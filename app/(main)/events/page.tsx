@@ -5,6 +5,8 @@ import { LuCalendar, LuMapPin, LuArrowRight, LuCirclePlay } from 'react-icons/lu
 import { EventSchema } from '@/lib/models/EventSchema';
 import { connectDB } from '@/lib/config/database';
 
+export const revalidate = 60;
+
 const EventsPage = async () => {
 
   await connectDB()

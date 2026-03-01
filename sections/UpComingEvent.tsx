@@ -5,6 +5,9 @@ import Link from 'next/link'
 import React from 'react'
 import { LuCalendar, LuMapPin, LuArrowRight } from 'react-icons/lu'
 
+
+export const revalidate = 60;
+
 const UpComingEvent = async () => {
 
   await connectDB()

@@ -3,6 +3,8 @@ import { connectDB } from '@/lib/config/database'
 import { ReviewsSchema } from '@/lib/models/ReviewSchema'
 import React from 'react'
 
+export const revalidate = 60;
+
 const SuccessStories = async () => {
 
   await connectDB()

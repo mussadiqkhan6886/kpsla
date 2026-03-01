@@ -3,6 +3,8 @@ import { NewsSchema } from '@/lib/models/NewsSchema'
 import Image from 'next/image'
 import React from 'react'
 
+export const revalidate = 60;
+
 const News = async () => {
     await connectDB()
     // Sort by latest first

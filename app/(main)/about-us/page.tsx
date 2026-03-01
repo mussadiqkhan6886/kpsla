@@ -10,6 +10,7 @@ import Partners from '@/components/UserComp/Partners'
 import { connectDB } from '@/lib/config/database'
 import { TeamSchema } from '@/lib/models/TeamMemberSchema'
 
+export const revalidate = 60;
 
 const AboutUs = async () => {
 
