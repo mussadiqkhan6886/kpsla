@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { LuQuote, LuTrash2, LuUser, LuLoader, LuMessageSquare } from 'react-icons/lu'
 import axios from 'axios'
 import { StoriesType } from '@/components/UserComp/SucessStoriesSwiper'
+import Link from 'next/link'
 
 const ManageReviews = () => {
   const [reviews, setReviews] = useState<StoriesType[]>([]);
@@ -46,7 +47,7 @@ const ManageReviews = () => {
     <div className="p-6 md:p-12 bg-slate-50 min-h-screen">
       <div className="max-w-6xl mx-auto">
         
-        <div className="flex items-center justify-between mb-12">
+        <div className="flex flex-col gap-5 sm:flex-row items-center justify-between mb-12">
           <div className="flex items-center gap-3">
             <div className="p-3 bg-white rounded-2xl shadow-sm text-indigo-600 border border-slate-100">
                 <LuMessageSquare size={24} />
@@ -56,6 +57,7 @@ const ManageReviews = () => {
                 <p className="text-xs font-bold text-slate-400 uppercase tracking-tighter">Total Published: {reviews.length}</p>
             </div>
           </div>
+          <Link className='bg-blue-500 text-white inline-block py-3 px-5 text-center rounded-md' href="/add-review">Add Review</Link>
         </div>
 
         {reviews.length === 0 ? (
