@@ -58,13 +58,13 @@ const Hero = () => {
 
         {/* Right Image Container */}
         <section className="w-full lg:w-1/2 flex justify-center">
-          <div className="relative w-full max-w-[500px] aspect-square">
+          <div className="relative w-full max-w-[520px] aspect-square">
             {/* The Image Wrapper with your custom rounded corners */}
             <div className="relative z-10 w-full h-full overflow-hidden rounded-tl-[140px] rounded-br-[140px] lg:rounded-tl-[240px] lg:rounded-br-[240px] ">
               <Image 
                 src="/hero.jpg" 
                 fill // Use fill for better responsive container handling
-                alt="Leadership training" 
+                alt="Leadership training hero image" 
                 className="object-cover "
                 priority // Priority loading for LCP
               />

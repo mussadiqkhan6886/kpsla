@@ -53,18 +53,17 @@ const SideBar = ({ isOpen, onClose }: SideBarProps) => {
             </ul>
           </nav>
 
-          {/* Bottom Actions */}
           <div className="mt-auto mb-10 border-t pt-6 space-y-4">
-            <button className="w-full rounded-xl bg-blue-600 py-3 font-semibold text-white shadow-md active:scale-95 transition-transform">
+            <Link onClick={onClose} href={"/registration"} className="w-full inline-block text-center rounded-xl bg-blue-600 py-3 font-semibold text-white shadow-md active:scale-95 transition-transform">
               Become a Member
-            </button>
+            </Link>
             
-            <a 
-              href="https://wa.me/yournumber" 
+            <Link onClick={onClose} 
+              target='_blank' href="https://wa.me/923409789559" 
               className="flex items-center justify-center gap-2 w-full py-3 text-green-600 font-medium border border-green-200 rounded-xl bg-green-50"
             >
               <FaWhatsapp /> Chat Support
-            </a>
+            </Link>
           </div>
         </div>
       </aside>
