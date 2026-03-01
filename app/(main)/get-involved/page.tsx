@@ -169,9 +169,9 @@ const GetInvolvedPage = () => {
               <h2 className="text-4xl font-black uppercase">Empower Youth Leadership</h2>
               <p className="text-blue-100 text-lg">Your sponsorship provides scholarships, resources, and platforms for the leaders of tomorrow.</p>
               <div className="flex items-center justify-center flex-wrap gap-4">
-                <button type="button" className="px-8 py-4 bg-green-500 text-green-100 font-black rounded-xl flex items-center gap-2 ">
+                <Link target="_blank" href="https://wa.me/923409789559" type="button" className="px-8 py-4 bg-green-500 text-green-100 font-black rounded-xl flex items-center gap-2 ">
                   <FiPhoneCall /> Whatsapp
-                </button>
+                </Link>
               </div>
             </div>
             <div className="lg:w-1/3 bg-white/10 p-4 md:p-8 rounded-[2rem] backdrop-blur-md border border-white/20">

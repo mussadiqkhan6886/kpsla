@@ -20,13 +20,13 @@ const Footer = () => {
               expert mentorship, and a global community of high-performers.
             </p>
             <div className="flex gap-4">
-              <Link href="#" className="h-10 w-10 rounded-full bg-slate-900 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all">
+              <Link target="_blank" href="https://www.tiktok.com/@kpsla8?_r=1&_t=ZN-94J3VXzMibm" className="h-10 w-10 rounded-full bg-slate-900 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all">
                 <FaTiktok size={18} />
               </Link>
-              <Link href="https://www.facebook.com/p/Kp-Students-Leadership-Association-61567282782387/" className="h-10 w-10 rounded-full bg-slate-900 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all">
+              <Link target="_blank" href="https://www.facebook.com/p/Kp-Students-Leadership-Association-61567282782387/" className="h-10 w-10 rounded-full bg-slate-900 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all">
                 <FaFacebook size={18} />
               </Link>
-              <Link href="https://www.instagram.com/kp_stdsleadershipassociation/?__d=1%2B" className="h-10 w-10 rounded-full bg-slate-900 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all">
+              <Link target="_blank" href="https://www.instagram.com/kp_stdsleadershipassociation/?__d=1%2B" className="h-10 w-10 rounded-full bg-slate-900 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all">
                 <FaInstagram size={18} />
               </Link>
             </div>
