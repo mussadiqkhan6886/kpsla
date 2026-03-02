@@ -1,7 +1,7 @@
 "use client"
 import React, { useState } from 'react'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { 
   LuLayoutDashboard, LuCirclePlus, LuUsers, 
@@ -10,6 +10,7 @@ import {
   LuStar
 } from 'react-icons/lu'
 import { FiHome } from 'react-icons/fi'
+import axios from 'axios'
 
 const AdminHeader = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,6 +26,16 @@ const AdminHeader = () => {
   ];
 
   const toggleMenu = () => setIsOpen(!isOpen);
+  const router = useRouter()
+
+  const logout = async () => {
+    const res = await axios.get("/api/logout")
+    router.push("/admin-dashboard/login")
+  }
+
+  if(pathname.includes("/admin-dashboard/login")){
+    return null
+  }
 
   return (
     <>
@@ -128,7 +139,7 @@ const AdminHeader = () => {
               </nav>
 
               <div className="absolute bottom-10 left-6 right-6 pt-6 border-t border-slate-100">
-                <button className="flex items-center gap-3 w-full p-4 text-red-500 font-bold hover:bg-red-50 rounded-2xl transition-all">
+                <button onClick={logout} className="flex items-center gap-3 w-full p-4 text-red-500 font-bold hover:bg-red-50 rounded-2xl transition-all">
                   <LuLogOut size={20} />
                   Logout
                 </button>
