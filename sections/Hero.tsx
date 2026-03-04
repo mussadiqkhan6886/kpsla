@@ -14,20 +14,8 @@ const Hero = () => {
             Empowering Future Leaders
           </span>
           
-          <h1 className="text-4xl md:text-6xl text-left font-extrabold text-slate-900 leading-[1.1]">
-            <RotatingText
-            texts={['Empowering', 'Igniting', 'Reshaping', 'Championing']}
-            mainClassName="overflow-hidden "
-            staggerFrom={"first"}
-            initial={{ y: "100%" }}
-            animate={{ y: 0 }}
-            exit={{ y: "-120%" }}
-            staggerDuration={0.025}
-            splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
-            transition={{ type: "spring", damping: 30, stiffness: 400 }}
-            rotationInterval={2500}
-            />  
-            <span className="text-blue-600 italic">KP's</span>, Tomorrow.
+          <h1 className="text-4xl md:text-6xl text-center lg:text-left font-extrabold text-slate-900 leading-[1.1]">
+            KP Student <span className="text-blue-500 italic">Leadership</span> <br /> Association.
           </h1>
           
           <p className="text-lg text-slate-600 max-w-xl mx-auto lg:mx-0 leading-relaxed">

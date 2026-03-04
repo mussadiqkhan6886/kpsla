@@ -1,4 +1,5 @@
 import FAQ from '@/components/UserComp/FAQ'
+import Messages from '@/components/UserComp/Messages'
 import Counter from '@/sections/Counter'
 import CTA from '@/sections/CTA'
 import Hero from '@/sections/Hero'
@@ -58,6 +59,7 @@ const Home = () => {
       <Hero />
       <Mission />
       <Power />
+      <Messages />
       <Counter />
       <WhatWeDo />
       <UpComingEvent />
